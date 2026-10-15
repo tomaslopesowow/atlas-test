@@ -1,0 +1,16 @@
+---
+- name: Install
+  hosts: all
+  remote_user: root
+  become: yes
+  become_method: sudo
+  vars_files:
+    - vars/main.yml
+
+  roles:
+    - security
+    - mongodb
+    - node
+    - nginx
+    - pm2
+    - setup

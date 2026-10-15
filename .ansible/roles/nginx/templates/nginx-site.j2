@@ -1,0 +1,95 @@
+# Rate limit OTP login attempts
+limit_req_zone $binary_remote_addr zone=otplogin:10m rate=10r/m;
+
+# Redirect every request to HTTPS...
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name {{ item.domains | join(' ') }};
+    server_tokens off;
+
+    location /.well-known/acme-challenge/ {
+        auth_basic off;
+        allow all;
+        default_type "text/plain";
+        root /var/www/letsencrypt/;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+# Primary domain...
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    http2 on;
+
+    server_name {{ item.domains | join(' ') }};
+    server_tokens off;
+
+    ssl_certificate /etc/letsencrypt/live/{{ item.main_domain }}/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/{{ item.main_domain }}/privkey.pem;
+    ssl_session_timeout 1d;
+    ssl_session_cache shared:SSL:10m;  # about 40000 sessions
+    ssl_session_tickets off;
+
+    ssl_dhparam /etc/nginx/dhparams.pem;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305;
+    ssl_prefer_server_ciphers off;
+
+    # HSTS can be increased once we are sure that there are no issues with the setup
+    # The ideal is 2 years (63072000), but for now keep it at 1 year (31536000)
+    add_header Strict-Transport-Security "max-age=31536000";
+
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options "nosniff";
+
+    # Check if allow_x_frame is defined and not empty. Add content security policy for each allowed
+    # x frame, otherwise only allow same origin.
+    {% if item.allow_x_frame is not defined or item.allow_x_frame | length == 0 %}
+    add_header X-Frame-Options "SAMEORIGIN";
+    {% else %}
+    add_header Content-Security-Policy "frame-ancestors 'self' {{ item.allow_x_frame | join(' ') }}";
+    {% endif %}
+
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Client-IP $remote_addr;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    charset utf-8;
+
+    location /.well-known/acme-challenge/ {
+        auth_basic off;
+        allow all;
+        default_type "text/plain";
+        root /var/www/letsencrypt/;
+    }
+
+    location / {
+        client_max_body_size 10M;
+        proxy_pass http://localhost:{{ item.port }};
+    }
+
+    location /api/otp/login {
+        limit_req zone=otplogin burst=5 nodelay;
+        proxy_pass http://localhost:{{ item.port }};
+    }
+
+    access_log  /var/log/nginx/{{ item.main_domain }}-access.log;
+    error_log  /var/log/nginx/{{ item.main_domain }}-error.log error;
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}

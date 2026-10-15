@@ -1,0 +1,13 @@
+.next
+.sentryclirc
+/blob-report/
+/playwright-report/
+/playwright/.cache/
+/test-results/
+node_modules/
+cosmos.imports.ts
+uploads/
+analyze/
+tsconfig.tsbuildinfo
+# Sentry Config File
+.env.sentry-build-plugin

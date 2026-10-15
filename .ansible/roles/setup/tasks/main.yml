@@ -1,0 +1,53 @@
+---
+- name: Create /var/www/ directory
+  file:
+    dest: /var/www/app
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0700
+
+- name: Make dir git safe
+  shell:
+    chdir: /var/www/app
+    cmd: git config --global --add safe.directory /var/www/app
+
+- name: Clone git repository
+  git:
+    repo: "https://_:{{ github_token }}@github.com/{{ git_repo }}.git"
+    dest: /var/www/app
+    version: "{{ git_branch }}"
+    force: true
+  register: cloned
+
+- name: Copy env file
+  synchronize:
+    src: ../apps/web/.env
+    dest: /var/www/app/apps/web/.env
+    recursive: true
+    delete: true
+    checksum: true
+
+- name: Append CI_ENVIRONMENT to web .env file
+  lineinfile:
+    path: /var/www/app/apps/web/.env
+    regexp: '^CI_ENVIRONMENT='
+    line: CI_ENVIRONMENT="{{ git_branch }}"
+
+- name: Install dependencies
+  shell:
+    chdir: /var/www/app
+    cmd: pnpm install
+
+- name: Copy build files
+  synchronize:
+    src: ../apps/web/.next
+    dest: /var/www/app/apps/web
+    recursive: true
+    delete: true
+    checksum: true
+
+- name: Reload pm2
+  shell:
+    chdir: /var/www
+    cmd: pm2 restart ecosystem.config.js

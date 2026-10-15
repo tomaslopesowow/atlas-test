@@ -1,0 +1,9 @@
+.manual-wrapper {
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+}
+
+.manual-wrapper .manual-content {
+    scroll-behavior: smooth;
+}

@@ -1,0 +1,36 @@
+---
+- name: Import the MongoDB public GPG key
+  get_url:
+    url: https://www.mongodb.org/static/pgp/server-7.0.asc
+    dest: /usr/share/keyrings/mongodb.asc
+
+- name: Add MongoDB repository
+  apt_repository:
+    repo: "deb [arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb.asc] https://repo.mongodb.org/apt/ubuntu {{ ansible_distribution_release }}/mongodb-org/7.0 multiverse"
+    state: present
+    filename: mongodb
+    update_cache: yes
+
+- name: Install mongodb
+  apt:
+    pkg: mongodb-org
+    state: latest
+  notify: start mongodb
+
+- name: Set permissions for mongodb directory
+  file:
+    dest: /var/lib/mongodb
+    state: directory
+    owner: mongodb
+    group: mongodb
+    recurse: yes
+
+# - name: Set permissions for mongodb socket
+#   file:
+#     dest: /tmp/mongodb-27017.sock
+#     state: file
+#     owner: mongodb
+#     group: mongodb
+
+- name: Flush handlers (force start mongodb)
+  meta: flush_handlers

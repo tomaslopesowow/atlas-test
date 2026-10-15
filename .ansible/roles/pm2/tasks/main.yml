@@ -1,0 +1,10 @@
+---
+- name: Install pm2
+  shell:
+    cmd: npm install pm2@latest -g
+    creates: /usr/bin/pm2
+
+- name: Install ecosystem config
+  template:
+    src: templates/ecosystem.config.js.j2
+    dest: /var/www/ecosystem.config.js
