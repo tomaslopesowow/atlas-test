@@ -1,0 +1,16 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.5.2/schema.json",
+    "root": false,
+    "extends": "//",
+
+    "files": {
+        "ignoreUnknown": true,
+        "includes": [
+            "**",
+            "!node_modules",
+            "!dist",
+            "!src/api/env.storefront.d.ts",
+            "!src/api/env.admin.d.ts"
+        ]
+    }
+}

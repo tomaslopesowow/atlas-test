@@ -1,0 +1,85 @@
+{
+    "name": "@repo/shopify",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "NODE_OPTIONS='--max-old-space-size=8192' tsup",
+        "dev": "tsup --watch",
+        "codegen": "gql-tada generate-output",
+        "typecheck": "tsc --noEmit",
+        "clean": "rm -rf node_modules .turbo dist"
+    },
+    "tsup": {
+        "entry": [
+            "src/**/*.ts",
+            "src/**/*.tsx",
+            "!src/**/*.d.ts"
+        ],
+        "splitting": true,
+        "sourcemap": true,
+        "clean": true,
+        "dts": true,
+        "external": [
+            "@sentry/nextjs"
+        ],
+        "loader": {
+            ".scss": "copy"
+        },
+        "format": [
+            "cjs",
+            "esm"
+        ]
+    },
+    "exports": {
+        "./*": {
+            "types": "./dist/*.d.ts",
+            "import": "./dist/*.js",
+            "require": "./dist/*.cjs"
+        }
+    },
+    "dependencies": {
+        "@radix-ui/react-dialog": "^1.1.19",
+        "@radix-ui/react-select": "^2.3.3",
+        "@radix-ui/react-slot": "^1.3.0",
+        "@repo/i18n": "workspace:*",
+        "@repo/lib": "workspace:*",
+        "@repo/ui": "workspace:*",
+        "@shopify/hydrogen-react": "^2026.4.3",
+        "@urql/core": "^6.0.3",
+        "@urql/next": "^2.0.1",
+        "gql.tada": "^1.11.2",
+        "graphql": "^17.0.2",
+        "immer": "^11.1.11",
+        "lodash.clonedeep": "^4.5.0",
+        "react-nanny": "^2.15.0",
+        "react-use": "^17.6.1",
+        "ts-essentials": "^10.2.1",
+        "urql": "^5.0.3"
+    },
+    "peerDependencies": {
+        "@payloadcms/ui": "3.85.2",
+        "@sentry/nextjs": "^10.63.0",
+        "next": "16.2.10",
+        "next-intl": "^4.13.1",
+        "payload": "3.85.2",
+        "react": "19.2.7",
+        "react-dom": "19.2.7"
+    },
+    "devDependencies": {
+        "@payloadcms/ui": "3.85.2",
+        "@sentry/nextjs": "^10.63.0",
+        "@types/node": "^26.1.0",
+        "@types/lodash.clonedeep": "^4.5.9",
+        "@types/react": "19.2.17",
+        "@types/react-dom": "19.2.3",
+        "gql.tada": "^1.11.2",
+        "next": "16.2.10",
+        "next-intl": "^4.13.1",
+        "payload": "3.85.2",
+        "react": "19.2.7",
+        "react-dom": "19.2.7",
+        "tsup": "^8.5.1",
+        "typescript": "^6.0.3"
+    }
+}

@@ -1,0 +1,66 @@
+---
+description: React implementation guidelines and best practices
+globs: *.tsx,*.jsx
+alwaysApply: false
+---
+# React Implementation Guidelines
+
+<rule>
+name: atlas_react
+description: Standards for implementing proper React components and patterns
+filters:
+  - type: file_extension
+    pattern: "\\.(?:jsx|tsx)$"
+  - type: content
+    pattern: "(?i)react|component|hook|jsx|props"
+
+actions:
+  - type: suggest
+    message: |
+      When implementing React code:
+
+      ## Component Structure
+      - Use props interfaces
+      - Use functional components with hooks
+      - Prefer arrow functions when possible
+      - Implement proper prop typing
+      - Use proper state management
+      - Implement proper effect handling
+      - Follow component best practices
+
+      ## Hooks Usage
+      - Use proper dependency arrays
+      - Implement custom hooks for reusable logic
+      - Use proper hook ordering
+      - Implement proper cleanup in useEffect
+      - Follow hooks best practices
+
+      ## Performance Optimization
+      - Use React.memo for expensive components
+      - Implement useCallback for function props
+      - Use useMemo for expensive calculations
+      - Implement proper key usage in lists
+      - Follow performance best practices
+
+      ## State Management
+      - Use proper context implementation
+      - Implement proper reducer patterns
+      - Use proper state lifting
+      - Implement proper prop drilling avoidance
+      - Follow state management best practices
+
+      ## Component Composition
+      - Use proper component composition
+      - Implement proper children usage
+      - Use proper render props
+      - Implement proper HOC patterns
+      - Follow composition best practices
+
+examples:
+  - input: "Creating a new React component"
+    output: "Component uses functional style, proper hooks, and follows React best practices"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule> 
