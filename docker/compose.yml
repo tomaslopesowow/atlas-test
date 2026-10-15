@@ -1,0 +1,20 @@
+services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - '0.0.0.0:27017:27017'
+    command:
+      - --storageEngine=wiredTiger
+    volumes:
+      - mongodb:/data/db
+    logging:
+      driver: none
+
+  mailpit:
+    image: 'axllent/mailpit:latest'
+    ports:
+      - '0.0.0.0:${MAIL_PORT:-1025}:1025'
+      - '0.0.0.0:${MAILPIT_DASHBOARD_PORT:-8025}:8025'
+
+volumes:
+  mongodb:

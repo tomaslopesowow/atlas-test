@@ -1,0 +1,23 @@
+{
+    "name": "@repo/lib-mail",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "email dev --dir src/emails --port 3025"
+    },
+    "dependencies": {
+        "@react-email/components": "^1.0.10",
+        "@react-email/tailwind": "^2.0.6",
+        "@repo/i18n": "workspace:*",
+        "react": "19.2.1",
+        "react-email": "^4.3.2",
+        "use-intl": "^4.8.3"
+    },
+    "devDependencies": {
+        "@react-email/preview-server": "4.3.2",
+        "@repo/typescript-config": "workspace:*",
+        "@types/react": "19.2.10",
+        "@types/react-dom": "19.2.3"
+    }
+}

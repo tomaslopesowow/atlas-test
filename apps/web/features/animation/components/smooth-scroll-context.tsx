@@ -1,0 +1,73 @@
+'use client';
+
+import Lenis, { type LenisOptions } from 'lenis';
+import {
+    type PropsWithChildren,
+    createContext,
+    useContext,
+    useMemo,
+    useState,
+} from 'react';
+import { useMotion } from '../hooks/use-motion';
+
+type SmoothScrollContextValue = {
+    lenis: Lenis | null;
+};
+
+const SmoothScrollContext = createContext<SmoothScrollContextValue | null>(
+    null,
+);
+
+const LENIS_CONFIG: LenisOptions = {
+    syncTouch: true,
+    syncTouchLerp: 0.025,
+    touchMultiplier: 0.6,
+    touchInertiaExponent: 2.5,
+};
+
+export const SmoothScrollProvider = ({ children }: PropsWithChildren) => {
+    const [lenis, setLenis] = useState<Lenis | null>(null);
+
+    useMotion(
+        ([{ default: gsap }, { default: ScrollTrigger }]) => {
+            const lenisInstance = new Lenis(LENIS_CONFIG);
+            setLenis(lenisInstance);
+            const update = (time: number) => lenisInstance.raf(time * 1000);
+
+            gsap.ticker.add(update);
+            gsap.ticker.lagSmoothing(0);
+
+            gsap.registerPlugin(ScrollTrigger);
+            lenisInstance.on('scroll', ScrollTrigger.update);
+
+            return () => {
+                gsap.ticker.remove(update);
+                lenisInstance.destroy();
+                setLenis(null);
+            };
+        },
+        {
+            enable: process.env.NEXT_PUBLIC_ECOMMERCE !== 'yes',
+            load: { when: 'load' },
+            loader: () =>
+                [import('gsap'), import('gsap/ScrollTrigger')] as const,
+        },
+    );
+    const value = useMemo(() => ({ lenis }), [lenis]);
+
+    return (
+        <SmoothScrollContext.Provider value={value}>
+            {children}
+        </SmoothScrollContext.Provider>
+    );
+};
+
+export const useSmoothScroll = () => {
+    const context = useContext(SmoothScrollContext);
+    if (!context) {
+        throw new Error(
+            'useSmoothScroll must be used within a SmoothScrollProvider',
+        );
+    }
+    return context;
+};
