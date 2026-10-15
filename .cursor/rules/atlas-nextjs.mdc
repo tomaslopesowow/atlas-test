@@ -1,0 +1,64 @@
+---
+description: Next.js implementation guidelines and best practices
+globs: apps/web/app/**,next.config.js
+alwaysApply: false
+---
+# Next.js Implementation Guidelines
+
+<rule>
+name: atlas_nextjs
+description: Standards for implementing proper Next.js applications and patterns
+filters:
+  - type: file_path
+    pattern: "(?:app/|next\\.config\\.js)$"
+  - type: content
+    pattern: "(?i)next\\.js|nextjs|getserversideprops|getstaticprops|getstaticpaths|app router"
+
+actions:
+  - type: suggest
+    message: |
+      When implementing Next.js code:
+
+      ## App Router
+      - Use proper page organization
+      - Implement proper layouts
+      - Use proper server components
+      - Implement proper client components
+      - Follow App Router best practices
+
+      ## Data Fetching
+      - Use proper server-side fetching
+      - Implement proper caching strategies
+      - Use proper revalidation
+      - Implement proper error handling
+      - Follow data fetching best practices
+
+      ## Routing
+      - Use proper dynamic routes
+      - Implement proper nested routes
+      - Use proper parallel routes
+      - Implement proper intercepted routes
+      - Follow routing best practices
+
+      ## Optimization
+      - Use proper image optimization
+      - Implement proper font loading
+      - Use proper script optimization
+      - Implement proper code splitting
+      - Follow optimization best practices
+
+      ## Deployment
+      - Use proper environment variables
+      - Implement proper build configuration
+      - Use proper deployment strategies
+      - Implement proper monitoring
+      - Follow deployment best practices
+
+examples:
+  - input: "Creating a new Next.js page"
+    output: "Page uses proper data fetching, optimizations, and follows Next.js best practices"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>

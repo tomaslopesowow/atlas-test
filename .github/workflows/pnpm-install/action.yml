@@ -1,0 +1,16 @@
+name: "pnpm install"
+description: "Installs Node.js 18 and installs dependencies with pnpm"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v3.0.0
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'pnpm'
+
+    - name: Install Dependencies
+      run: pnpm install
+      shell: bash
