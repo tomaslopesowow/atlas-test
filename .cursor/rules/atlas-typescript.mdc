@@ -1,0 +1,71 @@
+---
+description: TypeScript implementation rules and best practices
+globs: *.tsx,*.ts
+alwaysApply: false
+---
+# TypeScript Implementation Rules
+
+<rule>
+name: atlas_typescript
+description: Standards for implementing proper TypeScript patterns and best practices
+filters:
+  - type: file_extension
+    pattern: "\\.(?:ts|tsx)$"
+  - type: content
+    pattern: "(?i)typescript|interface|type|enum|generics"
+
+actions:
+  - type: suggest
+    message: |
+      When implementing TypeScript code:
+
+      ## Type Safety
+      - Enable strict mode in tsconfig.json
+      - Use strict type checking options
+      - Avoid using `any` type
+      - Use proper type assertions
+      - Implement proper type guards
+
+      ## Type Definitions
+      - Prefer `interface` over `type` when possible
+      - Define proper type aliases
+      - Use proper generics
+      - Implement proper utility types
+      - Use proper mapped types
+
+      ## Type-Safe Development
+      - Use proper type inference
+      - Implement proper type narrowing
+      - Use proper discriminated unions
+      - Implement proper type predicates
+      - Use proper conditional types
+
+      ## API Types
+      - Define proper request/response types
+      - Use proper enum types
+      - Implement proper type utilities
+      - Use proper type composition
+      - Implement proper type validation
+
+      ## Node.js Development
+      - Target Node.js v20+ features
+      - Use ES modules
+      - Implement proper error handling
+      - Follow Node.js best practices
+      - Use async/await for asynchronous operations
+
+      ## Code Organization
+      - Use proper module boundaries
+      - Implement clear interfaces
+      - Follow SOLID principles
+      - Use dependency injection
+      - Maintain consistent file structure
+
+examples:
+  - input: "Creating a new TypeScript component"
+    output: "Component uses proper interfaces, type guards, and follows TypeScript best practices"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>
