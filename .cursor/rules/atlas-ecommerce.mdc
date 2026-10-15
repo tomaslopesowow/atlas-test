@@ -1,0 +1,64 @@
+---
+description: E-commerce implementation guidelines and best practices
+globs: 
+alwaysApply: false
+---
+# E-commerce Implementation Guidelines
+
+<rule>
+name: atlas_ecommerce
+description: Standards for implementing proper e-commerce features and patterns
+filters:
+  - type: file_path
+    pattern: "commerce/"
+  - type: content
+    pattern: "(?i)ecommerce|e-commerce|product|cart|checkout|payment"
+
+actions:
+  - type: suggest
+    message: |
+      When implementing e-commerce features:
+
+      ## Product Management
+      - Implement proper product structure
+      - Use proper variant handling
+      - Implement proper inventory management
+      - Use proper pricing strategies
+      - Follow product best practices
+
+      ## Cart Management
+      - Implement proper cart persistence
+      - Use proper line item handling
+      - Implement proper cart calculations
+      - Use proper session management
+      - Follow cart best practices
+
+      ## Checkout Process
+      - Implement proper multi-step checkout
+      - Use proper form validation
+      - Implement proper address management
+      - Use proper order creation
+      - Follow checkout best practices
+
+      ## Payment Processing
+      - Use proper payment gateway integration
+      - Implement proper payment methods
+      - Use proper security measures
+      - Implement proper error handling
+      - Follow payment best practices
+
+      ## Order Management
+      - Implement proper order status handling
+      - Use proper fulfillment tracking
+      - Implement proper order history
+      - Use proper customer notifications
+      - Follow order management best practices
+
+examples:
+  - input: "Implementing a checkout flow"
+    output: "Checkout includes proper steps, validation, payment processing, and follows e-commerce best practices"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>

@@ -1,0 +1,18 @@
+{
+    "mcpServers": {
+        "context7": {
+            "command": "npx",
+            "args": ["-y", "@upstash/context7-mcp"]
+        },
+        "serena": {
+            "command": "uvx",
+            "args": [
+                "--from",
+                "git+https://github.com/oraios/serena",
+                "serena-mcp-server",
+                "--enable-web-dashboard",
+                "false"
+            ]
+        }
+    }
+}
