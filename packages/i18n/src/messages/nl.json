@@ -1,0 +1,54 @@
+{
+    "common": {
+        "all": "alle",
+        "event": "evenement"
+    },
+    "Navigation": {
+        "home": "Home",
+        "toggle-menu": "Menu openen",
+        "menu": "Menu",
+        "language-select": "Selecteer taal"
+    },
+    "Index": {
+        "title": "Hallo wereld!"
+    },
+    "Payload": {
+        "how-to-button": "Hoe je je website beheert"
+    },
+    "CookieTable": {
+        "cookie": "Cookie",
+        "term": "Term",
+        "description": "Beschrijving",
+        "function": "Functie",
+        "edit-preferences": "Voorkeuren bewerken"
+    },
+    "CookieNotice": {
+        "title": "Cookie Notitie",
+        "description": "We gebruiken cookies om ervoor te zorgen dat je de beste ervaring krijgt op onze website.",
+        "accept": "Accepteren",
+        "deny": "Weigeren",
+        "allow-selection": "Toestemming geven",
+        "accept-all": "Alles accepteren",
+        "save-preferences": "Voorkeuren opslaan"
+    },
+    "ecommerce": {
+        "product-sort": {
+            "sort-by": "Sorteer op",
+            "best-selling": "Best verkocht",
+            "price-low-to-high": "Prijs: Laag naar hoog",
+            "price-high-to-low": "Prijs: Hoog naar laag",
+            "title-a-z": "Titel: A-Z",
+            "title-z-a": "Titel: Z-A",
+            "featured": "Uitgelicht"
+        },
+        "product-filters": {
+            "filters": "Filters",
+            "in-stock": "Op voorraad",
+            "out-of-stock": "Niet op voorraad"
+        },
+        "product-list": {
+            "loading": "Laden...",
+            "load-more": "Meer laden"
+        }
+    }
+}

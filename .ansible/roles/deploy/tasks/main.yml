@@ -1,0 +1,69 @@
+---
+- name: Create /var/www/ directory
+  ansible.builtin.file:
+    dest: /var/www/app/docker
+    state: directory
+    owner: root
+    group: docker
+    mode: 0700
+
+- name: Upload Docker files
+  ansible.posix.synchronize:
+    src: ../../../../docker/
+    dest: /var/www/app/docker/
+    recursive: true
+    delete: true
+    checksum: true
+
+
+- name: Log in to DigitalOcean Container Registry
+  community.docker.docker_login:
+    registry_url: registry.digitalocean.com
+    username: docker
+    password: "{{ digitalocean_token }}"
+
+- name: Create MongoDB root username secret
+  community.docker.docker_secret:
+    name: mongo_root_username
+    data: "{{ mongo_root_username }}"
+    state: present
+
+- name: Create MongoDB root password secret
+  community.docker.docker_secret:
+    name: mongo_root_password
+    data: "{{ mongo_root_password }}"
+    state: present
+
+- name: Create web environment file secret
+  community.docker.docker_secret:
+    name: web_env_file
+    data: "{{ atlas_web_env | b64decode }}"
+    state: present
+
+- name: Build docker images
+  ansible.builtin.shell: docker compose --file="/var/www/app/docker/compose.{{ atlas_environment }}.yml" build
+
+- name: Deploy Docker stack to Swarm
+  community.docker.docker_stack:
+    name: atlas
+    state: present
+    compose:
+      - "/var/www/app/docker/compose.{{ atlas_environment }}.yml"
+    with_registry_auth: true
+    prune: true
+  environment:
+    ATLAS_WEB_VERSION: "{{ atlas_web_version }}"
+    MAXMIND_ACCOUNT_ID: "{{ maxmind_account_id }}"
+    MAXMIND_LICENSE_KEY: "{{ maxmind_license_key }}"
+  register: deploy_result
+
+- name: Get all services in the atlas stack
+  ansible.builtin.shell: docker service ls -q --filter label=com.docker.stack.namespace=atlas
+  register: atlas_services
+
+# Need to force update the entire stack because swarm has difficulty detecting
+# certain changes.
+- name: Force update all services in the atlas stack
+  ansible.builtin.shell: docker service update --force {{ item }}
+  loop: "{{ atlas_services.stdout_lines }}"
+  when: atlas_services.stdout_lines | length > 0

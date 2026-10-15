@@ -1,0 +1,86 @@
+{
+    "common": {
+        "all": "all",
+        "event": "event",
+        "previous": "previous",
+        "next": "next",
+        "load-more": "Load more",
+        "loading": "Loading..."
+    },
+    "Navigation": {
+        "home": "Home",
+        "toggle-menu": "Toggle menu",
+        "menu": "Menu",
+        "language-select": "Select language",
+        "next": "next"
+    },
+    "SkipLink": {
+        "skip-to-main-navigation": "Skip to main navigation",
+        "skip-to-main-content": "Skip to main content",
+        "skip-to-footer": "Skip to footer"
+    },
+    "Index": {
+        "title": "Hallo wereld!"
+    },
+    "Payload": {
+        "how-to-button": "How to manage your website"
+    },
+    "Footer": {
+        "rights": "All rights reserved.",
+        "newsletter": {
+            "title": "Newsletter",
+            "emailDescription": "Subscribe to our newsletter to get the latest news and updates.",
+            "buttonText": "Subscribe",
+            "emailPlaceholder": "Enter your email",
+            "emailTerms": "By subscribing, you agree to our privacy policy and terms and conditions."
+        }
+    },
+    "TaxonomyDetail": {
+        "written-by": "Written by",
+        "posted-on": "Posted on",
+        "share-article": "Share article",
+        "back-to-news": "Back to news"
+    },
+    "CookieTable": {
+        "cookie": "Cookie",
+        "term": "Term",
+        "description": "Description",
+        "consent-label": "Consent Label",
+        "edit-preferences": "Edit preferences"
+    },
+    "CookieNotice": {
+        "title": "We use cookies",
+        "description": "This website uses cookies to enhance your browsing experience and to collect information about how you interact with our site. We use this information to improve site performance and ensure user-friendliness.",
+        "deny": "Deny all",
+        "allow-selection": "Allow selection",
+        "accept-all": "Accept all",
+        "save-preferences": "Save preferences",
+        "param_ad_personalization": "Ad personalisation",
+        "param_ad_storage": "Ad storage",
+        "param_ad_user_data": "Ad user data",
+        "param_analytics_storage": "Analytics storage",
+        "necessary": "Necessary",
+        "analytics_storage": "Analytics",
+        "ad_storage": "Marketing"
+    },
+    "ecommerce": {
+        "product-sort": {
+            "sort-by": "Sort by",
+            "best-selling": "Best Selling",
+            "price-low-to-high": "Price: Low to High",
+            "price-high-to-low": "Price: High to Low",
+            "title-a-z": "Title: A-Z",
+            "title-z-a": "Title: Z-A",
+            "featured": "Featured"
+        },
+        "product-filters": {
+            "filters": "Filters",
+            "in-stock": "In Stock",
+            "out-of-stock": "Out of Stock"
+        },
+        "product-list": {
+            "loading": "Loading...",
+            "load-more": "Load more"
+        }
+    }
+}

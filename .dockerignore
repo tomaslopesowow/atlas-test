@@ -1,0 +1,13 @@
+.ansible
+.dockerignore
+.github
+.husky
+.next
+.terraform
+.turbo
+apps/web/app/(frontend)/cosmos
+build
+dist
+docker
+node_modules
+out
