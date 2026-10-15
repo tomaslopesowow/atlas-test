@@ -1,0 +1,293 @@
+@import "tailwindcss";
+
+/* shadcn's zinc palette, light then dark, which the system picks unless the theme toggle put `light` or `dark` on the root */
+:root {
+    color-scheme: light dark;
+    --background: light-dark(#ffffff, #09090b);
+    --foreground: light-dark(#09090b, #fafafa);
+    --card: light-dark(#ffffff, #09090b);
+    --card-foreground: light-dark(#09090b, #fafafa);
+    --popover: light-dark(#ffffff, #09090b);
+    --popover-foreground: light-dark(#09090b, #fafafa);
+    --primary: light-dark(#18181b, #fafafa);
+    --primary-foreground: light-dark(#fafafa, #18181b);
+    --secondary: light-dark(#f4f4f5, #27272a);
+    --secondary-foreground: light-dark(#18181b, #fafafa);
+    --muted: light-dark(#f4f4f5, #27272a);
+    --muted-foreground: light-dark(#71717a, #a1a1aa);
+    --accent: light-dark(#f4f4f5, #27272a);
+    --accent-foreground: light-dark(#18181b, #fafafa);
+    --destructive: light-dark(#dc2626, #ef4444);
+    --success: light-dark(#16a34a, #22c55e);
+    --border: light-dark(#e4e4e7, #27272a);
+    --input: light-dark(#e4e4e7, #27272a);
+    --ring: light-dark(#a1a1aa, #52525b);
+    /* the accent, grey in light mode and near-white in dark, unless the theme picker sets another on the root */
+    --chart: light-dark(#77767b, #f6f5f4);
+    /* shades of the accent, then a grey, for the slices of a pie after the first */
+    --chart-2: color-mix(in oklab, var(--chart) 60%, black);
+    --chart-3: light-dark(
+        color-mix(in oklab, var(--chart) 40%, white),
+        color-mix(in oklab, var(--chart) 35%, black)
+    );
+    --chart-4: light-dark(
+        color-mix(in oklab, var(--chart) 45%, black),
+        color-mix(in oklab, var(--chart) 80%, black)
+    );
+    --chart-5: light-dark(#a3a3a3, #52525b);
+    --sidebar: light-dark(#fafafa, #18181b);
+    --sidebar-accent: light-dark(#f4f4f5, #27272a);
+    --radius: 0.625rem;
+}
+
+:root.light {
+    color-scheme: light;
+}
+
+:root.dark {
+    color-scheme: dark;
+}
+
+@theme inline {
+    --font-sans:
+        "Inter", "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+        Roboto, "Helvetica Neue", Arial, sans-serif;
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-success: var(--success);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-chart: var(--chart);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+    *,
+    ::before,
+    ::after {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-sm text-foreground antialiased;
+    }
+
+    :focus-visible {
+        @apply outline-2 outline-offset-2 outline-ring;
+    }
+
+    summary {
+        @apply cursor-pointer list-none;
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+}
+
+/* the pieces every page repeats; anything used once stays utilities where it is */
+@layer components {
+    .btn {
+        @apply inline-flex h-9 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-md px-4 text-sm font-medium whitespace-nowrap transition-colors select-none disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0;
+    }
+
+    .btn-primary {
+        @apply bg-primary text-primary-foreground shadow-xs hover:bg-primary/90;
+    }
+
+    .btn-outline {
+        @apply border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground;
+    }
+
+    .btn-ghost {
+        @apply hover:bg-accent hover:text-accent-foreground;
+    }
+
+    .btn-destructive {
+        @apply bg-destructive text-white shadow-xs hover:bg-destructive/90;
+    }
+
+    .btn-sm {
+        @apply h-8 gap-1.5 px-3;
+    }
+
+    .btn-icon {
+        @apply size-8 px-0;
+    }
+
+    .card {
+        @apply rounded-xl border bg-card text-card-foreground shadow-sm;
+    }
+
+    .input {
+        @apply flex h-9 w-full min-w-0 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs transition-[color,box-shadow] outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20;
+    }
+
+    textarea.input {
+        @apply h-auto min-h-24 py-2;
+    }
+
+    .checkbox {
+        @apply size-4 shrink-0 cursor-pointer accent-chart;
+    }
+
+    .label {
+        @apply text-sm leading-none font-medium;
+    }
+
+    .badge {
+        @apply inline-flex w-fit shrink-0 items-center gap-1 rounded-md border px-2 py-0.5 text-xs font-medium whitespace-nowrap;
+    }
+
+    .link {
+        @apply font-medium underline-offset-4 hover:underline;
+    }
+
+    .alert {
+        @apply rounded-lg border px-4 py-3 text-sm;
+    }
+
+    .alert-error {
+        @apply border-destructive/50 text-destructive;
+    }
+
+    /* a details element opening a panel under its summary */
+    .popover {
+        @apply absolute z-50 mt-2 rounded-md border bg-popover p-1 text-popover-foreground shadow-md;
+    }
+
+    .menu-item {
+        @apply flex w-full cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 text-sm hover:bg-accent hover:text-accent-foreground aria-[current]:bg-accent aria-[current]:font-medium;
+    }
+
+    .data-table {
+        @apply w-full text-sm;
+    }
+
+    .data-table thead tr {
+        @apply border-b;
+    }
+
+    .data-table tbody tr {
+        @apply border-b transition-colors last:border-0 hover:bg-muted/50;
+    }
+
+    .data-table th {
+        @apply h-10 px-2 text-left align-middle font-medium whitespace-nowrap text-muted-foreground;
+    }
+
+    .data-table td {
+        @apply p-2 align-middle;
+    }
+
+    /* more rows on a screen: shorter rows, smaller text, smaller row buttons */
+    .data-table-compact th {
+        @apply h-8 text-xs;
+    }
+
+    .data-table-compact td {
+        @apply px-2 py-0.5 text-xs;
+    }
+
+    .data-table-compact td .btn {
+        @apply h-6 px-2 text-xs;
+    }
+
+    .data-table-compact td .btn-icon {
+        @apply w-6 px-0;
+    }
+}
+
+/* popovers and dialogs fade and zoom a little: @starting-style gives the first frame, `data-closing`, which dismiss() sets, the last */
+@media (prefers-reduced-motion: no-preference) {
+    .popover,
+    dialog {
+        transition:
+            opacity 150ms ease-out,
+            scale 150ms ease-out,
+            translate 150ms ease-out;
+    }
+
+    .popover {
+        transform-origin: top;
+    }
+
+    dialog::backdrop {
+        transition: background-color 150ms ease-out;
+    }
+}
+
+[data-closing] .popover {
+    opacity: 0;
+    scale: 0.95;
+    translate: 0 -4px;
+}
+
+@starting-style {
+    .popover {
+        opacity: 0;
+        scale: 0.95;
+        translate: 0 -4px;
+    }
+}
+
+dialog[data-closing] {
+    opacity: 0;
+    scale: 0.95;
+}
+
+@starting-style {
+    dialog[open] {
+        opacity: 0;
+        scale: 0.95;
+    }
+}
+
+/* the loading bar runs across the top, and holds still for those who ask for less motion */
+@keyframes loading {
+    from {
+        translate: -100% 0;
+    }
+    to {
+        translate: 300% 0;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .loading-bar {
+        animation: loading 1.2s ease-in-out infinite;
+    }
+}
+
+dialog[open]::backdrop {
+    background-color: rgb(0 0 0 / 0.6);
+}
+
+dialog[data-closing]::backdrop {
+    background-color: transparent;
+}
+
+@starting-style {
+    dialog[open]::backdrop {
+        background-color: transparent;
+    }
+}

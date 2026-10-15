@@ -1,0 +1,57 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.5.2/schema.json",
+
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true
+    },
+    "formatter": {
+        "enabled": true,
+        "indentStyle": "space",
+        "indentWidth": 4
+    },
+    "css": {
+        "parser": {
+            // @apply, @theme and the like, which the Tailwind stylesheets use
+            "tailwindDirectives": true
+        }
+    },
+    "javascript": {
+        "parser": {
+            "unsafeParameterDecoratorsEnabled": true
+        },
+        "formatter": {
+            "quoteStyle": "single"
+        }
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "preset": "recommended",
+            "performance": {
+                "noAccumulatingSpread": "warn"
+            },
+            "style": {
+                "noNonNullAssertion": "warn",
+                // NestJS reads constructor parameter types at runtime via
+                // `design:paramtypes`. `import type` is erased at compile time,
+                // so converting these breaks dependency injection at boot.
+                "useImportType": "off"
+            },
+            "suspicious": {
+                "noAssignInExpressions": "off"
+            },
+            "correctness": {
+                "noUnusedImports": "error"
+            }
+        }
+    },
+    "assist": {
+        "actions": {
+            "source": {
+                "organizeImports": "on"
+            }
+        }
+    }
+}

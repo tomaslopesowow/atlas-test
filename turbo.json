@@ -1,0 +1,79 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "globalDependencies": ["**/.env.*local"],
+    "ui": "tui",
+    "tasks": {
+        "build": {
+            "dependsOn": ["^build"],
+            "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+        },
+        "clean": {
+            "cache": false,
+            "dependsOn": []
+        },
+        "codegen": {
+            "cache": false,
+            "dependsOn": ["^build"]
+        },
+        "typecheck": {
+            "dependsOn": [
+                "^typecheck",
+                "@repo/email#build",
+                "@repo/i18n#build",
+                "@repo/lib#build",
+                "@repo/lib-shopify#build",
+                "@repo/media#build",
+                "@repo/notifications#build",
+                "@repo/rbac#build",
+                "@repo/admin-contract#build",
+                "@repo/admin#build"
+            ]
+        },
+        "test": {
+            "cache": false,
+            "dependsOn": ["^build"],
+            "passThroughEnv": ["TEST_DATABASE_URL"]
+        },
+        "test:e2e": {
+            "cache": false,
+            "dependsOn": ["^build"]
+        },
+        "test:codegen": {
+            "cache": false,
+            "dependsOn": ["^test:codegen"]
+        },
+        "docker:up": {
+            "cache": false,
+            "persistent": false,
+            "dependsOn": []
+        },
+        "dev": {
+            "cache": false,
+            "persistent": true,
+            "dependsOn": [
+                "@repo/i18n#build",
+                "@repo/lib#build",
+                "@repo/lib-shopify#build",
+                "@repo/media#build",
+                "@repo/notifications#build",
+                "@repo/rbac#build",
+                "@repo/admin-contract#build",
+                "@repo/admin-ui#build",
+                "@repo/admin#build"
+            ]
+        },
+        "web#dev": {
+            "cache": false,
+            "persistent": true,
+            "dependsOn": [
+                "@repo/i18n#build",
+                "@repo/lib#build",
+                "@repo/lib-shopify#build",
+                "web#docker:up"
+            ]
+        },
+        "start": {
+            "dependsOn": ["build"]
+        }
+    }
+}
