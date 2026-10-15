@@ -1,0 +1,52 @@
+{
+    "name": "@repo/media",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "engines": {
+        "node": ">=26.1.0"
+    },
+    "scripts": {
+        "build": "rm -rf dist && tsc -p tsconfig.build.json",
+        "dev": "tsc -p tsconfig.build.json -w --preserveWatchOutput",
+        "typecheck": "tsc --noEmit",
+        "test": "rm -rf .test-dist && tsc -p tsconfig.test.json && node --enable-source-maps --test \".test-dist/**/*.spec.js\"",
+        "clean": "rm -rf node_modules .turbo dist .test-dist"
+    },
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        }
+    },
+    "peerDependencies": {
+        "@nestjs/common": "^12.0.3",
+        "@nestjs/config": "^12.0.0",
+        "@nestjs/platform-express": "^12.0.3",
+        "@nestjs/typeorm": "^12.0.1",
+        "class-transformer": "^0.5.1",
+        "class-validator": "^0.15.1",
+        "reflect-metadata": "^0.2.2",
+        "typeorm": "^1.1.1"
+    },
+    "dependencies": {
+        "@aws-sdk/client-s3": "^3.1136.0",
+        "@types/express": "^5.0.6",
+        "@types/multer": "^2.2.0",
+        "sharp": "^0.35.3"
+    },
+    "devDependencies": {
+        "@nestjs/common": "^12.0.3",
+        "@nestjs/config": "^12.0.0",
+        "@nestjs/core": "^12.0.3",
+        "@nestjs/platform-express": "^12.0.3",
+        "@nestjs/testing": "^12.0.3",
+        "@nestjs/typeorm": "^12.0.1",
+        "@types/node": "^26.1.0",
+        "class-transformer": "^0.5.1",
+        "class-validator": "^0.15.1",
+        "reflect-metadata": "^0.2.2",
+        "typeorm": "^1.1.1",
+        "typescript": "^6.0.3"
+    }
+}
