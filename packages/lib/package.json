@@ -1,0 +1,35 @@
+{
+    "name": "@repo/lib",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "typecheck": "tsc --noEmit",
+        "clean": "rm -rf node_modules .turbo dist"
+    },
+    "tsup": {
+        "entry": [
+            "src/*.ts"
+        ],
+        "splitting": true,
+        "sourcemap": true,
+        "clean": true,
+        "dts": true,
+        "format": [
+            "cjs",
+            "esm"
+        ]
+    },
+    "exports": {
+        "./*": {
+            "types": "./dist/*.d.ts",
+            "import": "./dist/*.js",
+            "require": "./dist/*.cjs"
+        }
+    },
+    "devDependencies": {
+        "@types/node": "^26.1.0"
+    }
+}
