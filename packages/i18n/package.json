@@ -1,0 +1,41 @@
+{
+    "name": "@repo/i18n",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "typecheck": "tsc --noEmit",
+        "clean": "rm -rf node_modules .turbo dist"
+    },
+    "tsup": {
+        "entry": [
+            "src/**/*.ts",
+            "src/messages/*.json"
+        ],
+        "splitting": true,
+        "sourcemap": true,
+        "clean": true,
+        "dts": true,
+        "format": [
+            "cjs",
+            "esm"
+        ]
+    },
+    "exports": {
+        "./*": {
+            "types": "./dist/*.d.ts",
+            "import": "./dist/*.js",
+            "require": "./dist/*.cjs"
+        },
+        "./messages/*.json": {
+            "types": "./dist/messages/*.d.ts",
+            "import": "./dist/messages/*.js",
+            "require": "./dist/messages/*.cjs"
+        }
+    },
+    "devDependencies": {
+        "@types/node": "^26.1.0"
+    }
+}

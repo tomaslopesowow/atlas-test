@@ -1,0 +1,64 @@
+---
+description: Security implementation guidelines
+globs: 
+alwaysApply: false
+---
+# Security Implementation Rules
+
+<rule>
+name: atlas_security
+description: Standards for implementing proper security features
+filters:
+  - type: file_extension
+    pattern: "\\.(?:js|jsx|ts|tsx|api|json)$"
+  - type: content
+    pattern: "(?i)security|auth|jwt|token|encrypt|hash|password"
+
+actions:
+  - type: suggest
+    message: |
+      When implementing security features:
+
+      ## Authentication & Authorization
+      - Implement proper JWT handling
+      - Use secure session management
+      - Implement proper role-based access control
+      - Use proper OAuth flows
+      - Implement proper token refresh mechanisms
+
+      ## Data Security
+      - Implement proper input validation
+      - Use proper data sanitization
+      - Implement proper CSRF protection
+      - Use proper XSS prevention
+      - Implement proper SQL injection prevention
+
+      ## API Security
+      - Implement proper rate limiting
+      - Use proper API key management
+      - Implement proper CORS policies
+      - Use proper request validation
+      - Implement proper error handling
+
+      ## Infrastructure Security
+      - Use proper security headers
+      - Implement proper CSP policies
+      - Use proper HTTPS configuration
+      - Implement proper firewall rules
+      - Use proper security monitoring
+
+      ## Dependency Security
+      - Implement proper dependency scanning
+      - Use proper version pinning
+      - Implement proper security audits
+      - Use proper vulnerability monitoring
+      - Implement proper update procedures
+
+examples:
+  - input: "Adding a new authentication endpoint"
+    output: "Endpoint uses proper JWT handling, input validation, and error handling"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>

@@ -1,0 +1,59 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "globalDependencies": ["**/.env.*local"],
+    "ui": "tui",
+    "tasks": {
+        "build": {
+            "dependsOn": ["^build"],
+            "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+        },
+        "clean": {
+            "cache": false,
+            "dependsOn": []
+        },
+        "codegen": {
+            "cache": false,
+            "dependsOn": []
+        },
+        "typecheck": {
+            "dependsOn": [
+                "^typecheck",
+                "@repo/email#build",
+                "@repo/i18n#build",
+                "@repo/lib#build",
+                "@repo/lib-shopify#build"
+            ]
+        },
+        "test:codegen": {
+            "cache": false,
+            "dependsOn": ["^test:codegen"]
+        },
+        "docker:up": {
+            "cache": false,
+            "persistent": false,
+            "dependsOn": []
+        },
+        "dev": {
+            "cache": false,
+            "persistent": true,
+            "dependsOn": [
+                "@repo/i18n#build",
+                "@repo/lib#build",
+                "@repo/lib-shopify#build"
+            ]
+        },
+        "web#dev": {
+            "cache": false,
+            "persistent": true,
+            "dependsOn": [
+                "@repo/i18n#build",
+                "@repo/lib#build",
+                "@repo/lib-shopify#build",
+                "web#docker:up"
+            ]
+        },
+        "start": {
+            "dependsOn": ["build"]
+        }
+    }
+}
