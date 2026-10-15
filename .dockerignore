@@ -1,0 +1,12 @@
+.ansible
+.dockerignore
+.github
+.husky
+.next
+.terraform
+.turbo
+build
+dist
+docker
+node_modules
+out
