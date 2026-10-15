@@ -1,0 +1,13 @@
+---
+open_ports: [22, 80, 443]
+
+# The following configuration is expected to be received when running this
+# playbook.
+#
+# digitalocean_token:
+#
+# atlas_environment
+# atlas_web_version:
+# atlas_web_env:
+# maxmind_account_id
+# maxmind_license_key

@@ -1,0 +1,50 @@
+---
+description: Monorepo management rules and best practices
+globs: pnpm-workspace.yaml,turbo.json,package.json
+alwaysApply: false
+---
+# Monorepo Management Rules
+
+<rule>
+name: atlas_monorepo
+description: Standards for maintaining a well-structured monorepo
+filters:
+  - type: file_path
+    pattern: "(?:package\\.json|pnpm-workspace\\.yaml|turbo\\.json)$"
+  - type: content
+    pattern: "(?i)monorepo|workspace|turborepo|pnpm"
+
+actions:
+  - type: suggest
+    message: |
+      When managing the monorepo:
+
+      ## Turborepo Configuration
+      - Implement proper workspace setup
+      - Use proper task configuration
+      - Implement proper caching
+      - Use proper dependency management
+      - Follow Turborepo best practices
+
+      ## PNPM Workspace
+      - Implement proper package structure
+      - Use proper dependency sharing
+      - Implement proper versioning
+      - Use proper script management
+      - Follow PNPM best practices
+
+      ## Code Organization
+      - Implement proper package boundaries
+      - Use proper module federation
+      - Implement proper code sharing
+      - Use proper build optimization
+      - Implement proper testing strategy
+
+examples:
+  - input: "Adding a new package to the monorepo"
+    output: "Package follows proper structure with appropriate dependencies and build configuration"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule> 

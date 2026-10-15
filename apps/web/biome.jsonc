@@ -1,0 +1,56 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.4.15/schema.json",
+    "root": false,
+    "extends": "//",
+
+    "files": {
+        "ignoreUnknown": true,
+        "includes": [
+            "**",
+            "!node_modules",
+            "!.next",
+            "!dist",
+            "!build",
+            "!cache",
+            "!app/(payload)",
+            "!payload-types.ts",
+            "!features/blocks/importMap.js",
+            "!features/shopify/api/env.storefront.d.ts",
+            "!features/shopify/api/env.admin.d.ts",
+            "!next-env.d.ts"
+        ]
+    },
+    "linter": {
+        "domains": {
+            "next": "recommended",
+            "react": "recommended"
+        }
+    },
+    "css": {
+        "parser": {
+            "tailwindDirectives": true
+        }
+    },
+    "overrides": [
+        {
+            "includes": ["features/payload/features/otp/**"],
+            "linter": {
+                "rules": {
+                    "suspicious": {
+                        "noExplicitAny": "off"
+                    }
+                }
+            }
+        },
+        {
+            "includes": ["app/(frontend)/globals.css"],
+            "linter": {
+                "rules": {
+                    "suspicious": {
+                        "noUnknownAtRules": "off"
+                    }
+                }
+            }
+        }
+    ]
+}

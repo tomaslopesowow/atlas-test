@@ -1,0 +1,23 @@
+{
+    "include": ["src/**/*"],
+    "compilerOptions": {
+        "rootDir": ".",
+        "outDir": "dist",
+        "ignoreDeprecations": "6.0",
+        "incremental": false,
+        "target": "esnext",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "types": ["node"],
+        "strict": true,
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "verbatimModuleSyntax": true,
+        "skipLibCheck": true,
+        "noUncheckedIndexedAccess": true,
+        "declaration": true,
+        "declarationMap": false
+    },
+    "exclude": ["node_modules", "dist"]
+}
