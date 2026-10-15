@@ -1,0 +1,13 @@
+packages:
+  - apps/*
+  - packages/*
+
+allowBuilds:
+  '@biomejs/biome': true
+  '@parcel/watcher': true
+  '@sentry/cli': true
+  '@swc/core': true
+  core-js-pure: true
+  esbuild: true
+  highlight.js: true
+  sharp: true

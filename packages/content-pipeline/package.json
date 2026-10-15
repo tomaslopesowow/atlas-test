@@ -1,0 +1,42 @@
+{
+    "name": "@repo/content-pipeline",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "test:unit": "vitest run",
+        "test:watch": "vitest",
+        "typecheck": "tsc --noEmit",
+        "clean": "rm -rf node_modules .turbo dist"
+    },
+    "tsup": {
+        "entry": [
+            "src/**/*.ts"
+        ],
+        "splitting": false,
+        "sourcemap": true,
+        "clean": true,
+        "dts": true,
+        "onSuccess": "cp src/dataforseo/intent-keywords.csv dist/intent-keywords.csv && cp src/dataforseo/intent-keywords.csv dist/dataforseo/intent-keywords.csv",
+        "format": [
+            "esm"
+        ]
+    },
+    "exports": {
+        "./*": {
+            "types": "./dist/*.d.ts",
+            "import": "./dist/*.js"
+        }
+    },
+    "dependencies": {
+        "date-fns": "^4.1.0"
+    },
+    "devDependencies": {
+        "@types/node": "^25.9.1",
+        "tsup": "^8.5.1",
+        "typescript": "^6.0.3",
+        "vitest": "^4.1.8"
+    }
+}

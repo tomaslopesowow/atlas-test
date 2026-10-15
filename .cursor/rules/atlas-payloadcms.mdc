@@ -1,0 +1,64 @@
+---
+description: PayloadCMS implementation guidelines and best practices
+globs: apps/web/features/payload/**
+alwaysApply: false
+---
+# PayloadCMS Implementation Guidelines
+
+<rule>
+name: atlas_payloadcms
+description: Standards for implementing proper PayloadCMS applications and patterns
+filters:
+  - type: file_path
+    pattern: "payload/"
+  - type: content
+    pattern: "(?i)payloadcms|payload cms|collection|field|access control"
+
+actions:
+  - type: suggest
+    message: |
+      When implementing PayloadCMS code:
+
+      ## Collections
+      - Use proper collection structure
+      - Implement proper field definitions
+      - Use proper validation rules
+      - Access control is handled by a plugin, but may be overwritten in special cases
+      - Follow collection best practices
+
+      ## Fields
+      - Use proper field types
+      - Implement proper relationships
+      - Use proper field validation
+      - Implement proper conditional fields
+      - Follow field best practices
+
+      ## Access Control
+      - Implement proper user roles
+      - Use proper document-level access
+      - Implement proper field-level access
+      - Use proper authentication strategies
+      - Follow access control best practices
+
+      ## Hooks
+      - Use proper beforeChange hooks
+      - Implement proper afterChange hooks
+      - Use proper beforeRead hooks
+      - Implement proper afterRead hooks
+      - Follow hook best practices
+
+      ## Admin UI
+      - Implement proper admin components
+      - Use proper field customization
+      - Implement proper layout customization
+      - Use proper custom views
+      - Follow admin UI best practices
+
+examples:
+  - input: "Creating a new PayloadCMS collection"
+    output: "Collection includes proper fields, validation, access control, and follows PayloadCMS best practices"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule> 
