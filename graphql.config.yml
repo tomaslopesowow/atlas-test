@@ -1,0 +1,9 @@
+projects:
+  shopifyStorefrontApi:
+    schema: https://shopify.dev/storefront-graphql-direct-proxy/2025-01
+    documents:
+      - './apps/web/features/graphql/shopify/**/*.ts'
+  shopifyAdminApi:
+    schema: https://shopify.dev/admin-graphql-direct-proxy/2025-01
+    documents:
+      - './apps/web/features/graphql/shopify-admin/**/*.ts'

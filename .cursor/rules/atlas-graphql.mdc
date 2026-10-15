@@ -1,0 +1,64 @@
+---
+description: GraphQL implementation guidelines and best practices
+globs: 
+alwaysApply: false
+---
+# GraphQL Implementation Guidelines
+
+<rule>
+name: atlas_graphql
+description: Standards for implementing proper GraphQL APIs and clients
+filters:
+  - type: file_extension
+    pattern: "\\.(?:graphql|gql|js|ts)$"
+  - type: content
+    pattern: "(?i)graphql|gql|query|mutation|schema|resolver"
+
+actions:
+  - type: suggest
+    message: |
+      When implementing GraphQL code:
+
+      ## Schema Design
+      - Use proper type definitions
+      - Implement proper schema organization
+      - Use proper naming conventions
+      - Implement proper input types
+      - Follow schema best practices
+
+      ## Resolvers
+      - Implement proper resolver functions
+      - Use proper data loading patterns
+      - Implement proper error handling
+      - Use proper authentication/authorization
+      - Follow resolver best practices
+
+      ## Queries
+      - Use proper field selection
+      - Implement proper pagination
+      - Use proper filtering
+      - Implement proper sorting
+      - Follow query best practices
+
+      ## Mutations
+      - Use proper input validation
+      - Implement proper error responses
+      - Use proper optimistic updates
+      - Implement proper cache invalidation
+      - Follow mutation best practices
+
+      ## Client Integration
+      - Use proper Apollo Client setup
+      - Implement proper caching strategies
+      - Use proper query hooks
+      - Implement proper mutation hooks
+      - Follow client best practices
+
+examples:
+  - input: "Creating a new GraphQL query"
+    output: "Query uses proper field selection, pagination, and follows GraphQL best practices"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>
