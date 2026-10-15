@@ -1,0 +1,57 @@
+---
+description: Infrastructure and DevOps implementation guidelines, for terraform, ansible among other things.
+globs: 
+alwaysApply: false
+---
+# Infrastructure and DevOps Rules
+
+<rule>
+name: atlas_infrastructure
+description: Standards for implementing proper infrastructure and DevOps practices
+filters:
+  - type: file_path
+    pattern: "(?:Dockerfile|docker-compose\\.yml|\\.github/workflows/.*\\.yml|infra/|.*\\.tf)$"
+  - type: content
+    pattern: "(?i)infrastructure|devops|terraform|docker|ansible|ci/cd"
+
+actions:
+  - type: suggest
+    message: |
+      When implementing infrastructure and DevOps:
+
+      ## Terraform Implementation
+      - Implement proper resource management
+      - Use proper state management
+      - Implement proper module structure
+      - Use proper variable handling
+      - Follow Terraform best practices
+
+      ## Ansible Configuration
+      - Implement proper playbook structure
+      - Use proper role organization
+      - Implement proper inventory management
+      - Use proper variable handling
+      - Follow Ansible best practices
+
+      ## Docker Implementation
+      - Implement proper containerization
+      - Use proper multi-stage builds
+      - Implement proper volume management
+      - Use proper networking
+      - Follow Docker best practices
+
+      ## CI/CD Pipeline
+      - Implement proper GitHub Actions
+      - Use proper workflow organization
+      - Implement proper testing automation
+      - Use proper deployment strategies
+      - Follow CI/CD best practices
+
+examples:
+  - input: "Creating a new Docker container"
+    output: "Container uses multi-stage builds, efficient layering, and follows Docker best practices"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>
