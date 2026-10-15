@@ -1,0 +1,27 @@
+{
+    "include": ["src/**/*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "dist",
+        "ignoreDeprecations": "6.0", // < tsup injects the baseUrl, so we have to ignore this for now
+        "incremental": false,
+        "target": "esnext",
+        "jsx": "react-jsx",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        "resolveJsonModule": true,
+        "strict": true,
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "verbatimModuleSyntax": true,
+        "skipLibCheck": true,
+        "noUncheckedIndexedAccess": true,
+        "declaration": true,
+        "declarationMap": false
+    },
+    "exclude": ["node_modules", "dist"]
+}

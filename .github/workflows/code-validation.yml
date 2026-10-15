@@ -1,0 +1,79 @@
+name: Code Validation
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v7
+    - uses: ./.github/workflows/pnpm-install
+
+    - name: Lint
+      run: pnpm lint
+
+  typecheck:
+    name: Typecheck
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v7
+    - uses: ./.github/workflows/pnpm-install
+
+    - name: Typecheck
+      run: pnpm typecheck
+
+  # AI-Review:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v7
+  #     - uses: freeedcom/ai-codereviewer@v2.7.0
+  #       with:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+  #         exclude: "**/*.json, **/*.md"
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    # the packages' Postgres specs and the api's end-to-end tests, which make databases of their own
+    services:
+      postgres:
+        image: postgres:18-alpine
+        env:
+          POSTGRES_USER: atlas
+          POSTGRES_PASSWORD: atlas
+          POSTGRES_DB: atlas
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U atlas -d atlas"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
+
+    env:
+      TEST_DATABASE_URL: postgres://atlas:atlas@localhost:5432/atlas
+
+    steps:
+    - uses: actions/checkout@v7
+    # media and notifications use crypto.randomUUIDv7, new in Node 26.1
+    - uses: ./.github/workflows/pnpm-install
+      with:
+        node-version: '26'
+
+    - name: Test
+      run: pnpm turbo run test --filter=@repo/rbac --filter=@repo/media --filter=@repo/notifications --filter=@repo/admin --filter=@repo/admin-ui --filter=api
+
+    - name: End-to-end test the api
+      run: pnpm turbo run test:e2e --filter=api

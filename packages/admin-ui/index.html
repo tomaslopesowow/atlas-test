@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex, nofollow" />
+        <title>Admin</title>
+        <script>
+            // the theme picked before, applied before the first paint
+            try {
+                const theme = localStorage.getItem('admin.theme');
+                if (theme === 'light' || theme === 'dark')
+                    document.documentElement.classList.add(theme);
+                const accent = localStorage.getItem('admin.accent');
+                if (/^#[0-9a-f]{6}$/i.test(accent ?? ''))
+                    document.documentElement.style.setProperty('--chart', accent);
+            } catch {}
+        </script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.tsx"></script>
+    </body>
+</html>

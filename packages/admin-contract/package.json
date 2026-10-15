@@ -1,0 +1,21 @@
+{
+    "name": "@repo/admin-contract",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "rm -rf dist && tsc -p tsconfig.json",
+        "dev": "tsc -p tsconfig.json -w --preserveWatchOutput",
+        "typecheck": "tsc --noEmit",
+        "clean": "rm -rf node_modules .turbo dist"
+    },
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        }
+    },
+    "devDependencies": {
+        "typescript": "^6.0.3"
+    }
+}
