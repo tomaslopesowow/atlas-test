@@ -1,0 +1,126 @@
+---
+- name: Import the nginx public GPG key
+  get_url:
+    url: https://nginx.org/keys/nginx_signing.key
+    dest: /usr/share/keyrings/nginx.asc
+
+- name: Add nginx repository
+  apt_repository:
+    repo: 'deb [signed-by=/usr/share/keyrings/nginx.asc] http://nginx.org/packages/ubuntu {{ ansible_distribution_release }} nginx'
+    state: present
+    filename: nginx
+    update_cache: yes
+
+- name: Install nginx & certbot
+  apt:
+    pkg:
+      - nginx
+      - certbot
+    state: present
+
+- name: Create letsencrypt directory
+  file:
+    name: /var/www/letsencrypt/.well-known/acme-challenge
+    state: directory
+
+- name: Create sites available directory
+  file:
+    name: /etc/nginx/sites-available
+    state: directory
+
+- name: Create sites enabled directory
+  file:
+    name: /etc/nginx/sites-enabled
+    state: directory
+
+- name: Update default nginx config
+  template:
+    src: templates/nginx-default.j2
+    dest: /etc/nginx/sites-available/default
+
+- name: Install global nginx config
+  template:
+    src: templates/nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+  notify: restart nginx
+
+# TODO Make this easier to use (just use a single file?)
+# Now we have to delete the files every time we use a different domain
+- name: Get config file status
+  stat:
+    path: /etc/nginx/sites-available/{{ item.main_domain }}
+  register: existing_config
+  loop: "{{ apps }}"
+
+- name: Create nginx site for acme challenge
+  template:
+    src: templates/nginx-site_before_challenge.j2
+    dest: /etc/nginx/sites-available/acme_challenge_{{ item.main_domain }}
+  when: not existing_config.results[idx].stat.exists
+  loop: "{{ apps }}"
+  loop_control:
+    index_var: idx
+
+- name: Enable nginx site for acme challenge
+  file:
+    src: /etc/nginx/sites-available/acme_challenge_{{ item.main_domain }}
+    dest: /etc/nginx/sites-enabled/acme_challenge_{{ item.main_domain }}
+    state: link
+  when: not existing_config.results[idx].stat.exists
+  loop: "{{ apps }}"
+  loop_control:
+    index_var: idx
+  notify: restart nginx
+
+- name: Flush handlers (force restart nginx)
+  meta: flush_handlers
+  when: not existing_config.results|map(attribute='stat.exists') is all
+
+- name: Create letsencrypt certificate
+  shell: certbot certonly --cert-name {{ item.main_domain }} -n --webroot -w /var/www/letsencrypt --agree-tos --email {{ letsencrypt_email }} -d {{ item.domains | join(',') }} --expand
+  args:
+    creates: /etc/letsencrypt/live/{{ item.main_domain }}
+  when: not existing_config.results[idx].stat.exists
+  loop: "{{ apps }}"
+  loop_control:
+    index_var: idx
+
+- name: Generate dhparams
+  shell: openssl dhparam -out /etc/nginx/dhparams.pem 2048
+  args:
+    creates: /etc/nginx/dhparams.pem
+  when: not existing_config.results|map(attribute='stat.exists') is all
+
+- name: Remove nginx site for acme challenge
+  file:
+      path: /etc/nginx/sites-{{ item }}/acme_challenge_{{ item.main_domain }}
+      state: absent
+  with_items:
+    - enabled
+    - available
+  loop: "{{ apps }}"
+  notify: restart nginx
+
+- name: Create nginx site with ssl
+  template:
+    src: templates/nginx-site.j2
+    dest: /etc/nginx/sites-available/{{ item.main_domain }}
+  loop: "{{ apps }}"
+  notify: restart nginx
+
+- name: Enable nginx site for specified domain
+  file:
+    src: /etc/nginx/sites-available/{{ item.main_domain }}
+    dest: /etc/nginx/sites-enabled/{{ item.main_domain }}
+    state: link
+  loop: "{{ apps }}"
+  notify: restart nginx
+
+- name: Flush handlers (force restart nginx)
+  meta: flush_handlers
+
+- name: Add letsencrypt cronjob for cert renewal
+  cron:
+    name: letsencrypt_renewal
+    special_time: weekly
+    job: certbot renew -n --webroot -w /var/www/letsencrypt --agree-tos --email {{ letsencrypt_email }} && service nginx reload

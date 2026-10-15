@@ -1,0 +1,17 @@
+---
+- name: Install fail2ban
+  apt:
+    pkg: fail2ban
+    state: latest
+  notify: start fail2ban
+
+- name: Add ports to firewall
+  ufw:
+    rule: allow
+    port: "{{ item }}"
+    proto: tcp
+  with_items: "{{ open_ports }}"
+
+- name: Enable firewall
+  ufw:
+    state: enabled

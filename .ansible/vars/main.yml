@@ -1,0 +1,21 @@
+---
+letsencrypt_email: infrastructure+letsencrypt@owow.io
+
+open_ports: [22, 80, 443]
+
+nodejs_version: 20.x
+
+git_repo: owowagency/atlas
+
+# The following variables should be overwritten in the workflow
+
+# APPS:
+# [
+#   {
+#     "main_domain": "<environment>.<project>.owow.dev",
+#     "domains": ["<environment>.<project>.owow.dev"],
+#     "name": "web",
+#     "port": 3000,
+#     "default_server": true
+#   }
+# ]

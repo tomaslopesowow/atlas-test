@@ -1,0 +1,19 @@
+# Redirect every request to HTTPS...
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name {{ item.domains | join(' ') }};
+    server_tokens off;
+
+    location /.well-known/acme-challenge/ {
+        auth_basic off;
+        allow all;
+        default_type "text/plain";
+        root /var/www/letsencrypt/;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}

@@ -1,0 +1,17 @@
+module.exports = {
+    apps: [
+        {
+            name: 'web',
+            script: './node_modules/next/dist/bin/next',
+            args: 'start',
+            cwd: '/var/www/app/apps/web',
+            env: {PORT: 3000},
+            exec_mode: 'cluster',
+            instances: 2,
+            max_memory_restart: '500M',
+            listen_timeout: 30000,
+            wait_ready: true,
+            time: true,
+        },
+    ]
+}
