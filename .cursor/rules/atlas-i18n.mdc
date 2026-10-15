@@ -1,0 +1,64 @@
+---
+description: Internationalization implementation rules
+globs: 
+alwaysApply: false
+---
+# Internationalization Implementation Rules
+
+<rule>
+name: atlas_i18n
+description: Standards for implementing proper internationalization features
+filters:
+  - type: file_extension
+    pattern: "\\.(?:js|jsx|ts|tsx|json)$"
+  - type: content
+    pattern: "(?i)i18n|internationalization|localization|translation"
+
+actions:
+  - type: suggest
+    message: |
+      When implementing internationalization features:
+
+      ## Translation Management
+      - Use proper translation keys
+      - Implement proper translation files
+      - Use proper namespace organization
+      - Implement proper fallback languages
+      - Use proper translation tools
+
+      ## Date & Time
+      - Use proper date formatting
+      - Implement proper timezone handling
+      - Use proper calendar systems
+      - Implement proper relative time
+      - Use proper date parsing
+
+      ## Number Formatting
+      - Use proper number formatting
+      - Implement proper currency handling
+      - Use proper decimal separators
+      - Implement proper unit conversion
+      - Use proper measurement systems
+
+      ## Text Direction
+      - Implement proper RTL support
+      - Use proper text alignment
+      - Implement proper bidirectional text
+      - Use proper layout flipping
+      - Implement proper mirroring
+
+      ## Content Management
+      - Use proper pluralization
+      - Implement proper gender rules
+      - Use proper context rules
+      - Implement proper interpolation
+      - Use proper formatting options
+
+examples:
+  - input: "Adding text to the user interface"
+    output: "Internationalized content with proper translation keys and namespacing"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>
