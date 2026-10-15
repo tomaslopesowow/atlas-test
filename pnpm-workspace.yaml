@@ -1,0 +1,11 @@
+packages:
+  - apps/*
+  - packages/*
+
+onlyBuiltDependencies:
+  - '@biomejs/biome'
+  - '@sentry/cli'
+  - core-js-pure
+  - esbuild
+  - highlight.js
+  - sharp

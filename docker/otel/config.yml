@@ -1,0 +1,72 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: ${env:OTEL_COLLECTOR_HOST}:${env:OTEL_COLLECTOR_PORT_GRPC}
+      http:
+        endpoint: ${env:OTEL_COLLECTOR_HOST}:${env:OTEL_COLLECTOR_PORT_HTTP}
+        cors:
+          allowed_origins:
+            - "http://*"
+            - "https://*"
+  # filelog:
+  #   include:
+  #     - /var/lib/docker/containers/*/*-json.log
+  #   start_at: end
+  #   poll_interval: 200ms
+  #   include_file_name: false
+  #   include_file_path: false
+  #   operators:
+  #     - id: docker-container-parser
+  #       type: container
+  #       format: docker
+  docker_stats:
+    endpoint: unix:///var/run/docker.sock
+    # collection_interval: 10s
+    # timeout: 5s
+    # metrics:
+    #   container.cpu.utilization:
+    #     enabled: true
+    #   container.memory.percent:
+    #     enabled: true
+    #   container.network.io.usage.rx_bytes:
+    #     enabled: true
+    #   container.network.io.usage.tx_bytes:
+    #     enabled: true
+
+processors:
+  batch:
+  resource:
+    attributes:
+      - key: project
+        # TODO: Should be project name.
+        value: atlas
+        action: upsert
+  resourcedetection:
+    detectors: [env, docker, system]
+
+exporters:
+  otlp:
+    endpoint: "http://host.docker.internal:4317"
+    tls:
+      # TODO: add authentication.
+      insecure: true
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [resourcedetection, resource, batch]
+      exporters: [otlp]
+    logs:
+      receivers: [otlp]
+      processors: [resourcedetection, resource, batch]
+      exporters: [otlp]
+    metrics:
+      receivers: [docker_stats]
+      processors: [resourcedetection, resource, batch]
+      exporters: [otlp]
+  # TODO: there was some issue with collecting metrics. Remove to get error.
+  # telemetry:
+  #   metrics:
+  #     level: none
