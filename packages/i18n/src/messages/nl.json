@@ -1,0 +1,81 @@
+{
+    "common": {
+        "all": "alle",
+        "event": "evenement",
+        "previous": "vorige",
+        "next": "volgende",
+        "load-more": "Meer laden",
+        "loading": "Laden..."
+    },
+    "Navigation": {
+        "home": "Home",
+        "toggle-menu": "Menu openen",
+        "menu": "Menu",
+        "language-select": "Selecteer taal",
+        "next": "volgende",
+        "open-submenu": "Open submenu voor",
+        "switch-to-language": "Schakel naar {locale} taal"
+    },
+    "SkipLink": {
+        "skip-to-main-navigation": "Ga naar hoofd navigatie",
+        "skip-to-main-content": "Ga naar hoofdinhoud",
+        "skip-to-footer": "Ga naar footer"
+    },
+    "Index": {
+        "title": "Hallo wereld!"
+    },
+    "Footer": {
+        "rights": "Alle rechten voorbehouden.",
+        "newsletter": {
+            "title": "Nieuwsbrief",
+            "emailDescription": "Abonneer je op onze nieuwsbrief om het laatste nieuws en updates te ontvangen.",
+            "buttonText": "Abonneren",
+            "emailPlaceholder": "Voer je e-mailadres in",
+            "emailTerms": "Door je te abonneren ga je akkoord met ons privacybeleid en algemene voorwaarden."
+        }
+    },
+    "CookieTable": {
+        "cookie": "Cookie",
+        "term": "Term",
+        "description": "Beschrijving",
+        "consent-label": "Toestemmingslabel",
+        "function": "Functie",
+        "edit-preferences": "Voorkeuren bewerken"
+    },
+    "CookieNotice": {
+        "title": "We gebruiken cookies",
+        "description": "Deze website gebruikt cookies om je browse-ervaring te verbeteren en informatie te verzamelen over hoe je met onze site interacteert. We gebruiken deze informatie om de siteprestaties te verbeteren en gebruiksvriendelijkheid te waarborgen.",
+        "accept": "Accepteren",
+        "deny": "Alles weigeren",
+        "allow-selection": "Toestemming geven",
+        "accept-all": "Alles accepteren",
+        "save-preferences": "Voorkeuren opslaan",
+        "param_ad_personalization": "Advertentie-personalisatie",
+        "param_ad_storage": "Advertentie-opslag",
+        "param_ad_user_data": "Advertentie-gebruikersgegevens",
+        "param_analytics_storage": "Analytics-opslag",
+        "necessary": "Noodzakelijk",
+        "analytics_storage": "Analytics",
+        "ad_storage": "Marketing"
+    },
+    "ecommerce": {
+        "product-sort": {
+            "sort-by": "Sorteer op",
+            "best-selling": "Best verkocht",
+            "price-low-to-high": "Prijs: Laag naar hoog",
+            "price-high-to-low": "Prijs: Hoog naar laag",
+            "title-a-z": "Titel: A-Z",
+            "title-z-a": "Titel: Z-A",
+            "featured": "Uitgelicht"
+        },
+        "product-filters": {
+            "filters": "Filters",
+            "in-stock": "Op voorraad",
+            "out-of-stock": "Niet op voorraad"
+        },
+        "product-list": {
+            "loading": "Laden...",
+            "load-more": "Meer laden"
+        }
+    }
+}
