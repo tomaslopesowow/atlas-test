@@ -1,0 +1,20 @@
+packages:
+  - apps/*
+  - packages/*
+
+allowBuilds:
+  '@biomejs/biome': true
+  '@parcel/watcher': true
+  '@sentry/cli': true
+  '@swc/core': true
+  core-js-pure: true
+  esbuild: true
+  highlight.js: true
+  sharp: true
+
+# next declares an optional sharp dep (^0.34.5) that conflicts with our own
+# (^0.35.3), causing pnpm to install two copies with two different
+# @img/sharp-libvips-linux-x64 native binaries. Paired with
+# outputFileTracingIncludes in next.config.ts — revert both together.
+overrides:
+  sharp: ^0.35.3

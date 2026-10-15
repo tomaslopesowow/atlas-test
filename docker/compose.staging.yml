@@ -1,0 +1,165 @@
+secrets:
+  mongo_root_username:
+    name: ${MONGO_USERNAME_SECRET_NAME}
+    external: true
+  mongo_root_password:
+    name: ${MONGO_PASSWORD_SECRET_NAME}
+    external: true
+  web_env_file:
+    name: ${WEB_ENV_SECRET_NAME}
+    external: true
+
+services:
+  geoipupdate:
+    image: maxmindinc/geoipupdate:latest
+    environment:
+      - GEOIPUPDATE_ACCOUNT_ID=${MAXMIND_ACCOUNT_ID}
+      - GEOIPUPDATE_EDITION_IDS=GeoLite2-Country
+      - GEOIPUPDATE_FREQUENCY=744
+      - GEOIPUPDATE_LICENSE_KEY=${MAXMIND_LICENSE_KEY}
+    volumes:
+      - geoipdb:/usr/share/GeoIP
+
+  mongo:
+    image: mongo:latest
+    command:
+      - --storageEngine=wiredTiger
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        delay: 5s
+        failure_action: rollback
+        order: start-first
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME_FILE=/run/secrets/mongo_root_username
+      - MONGO_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo_root_password
+    healthcheck:
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+      test: ["CMD", "sh", "-c", "mongosh --username=$$(cat $$MONGO_INITDB_ROOT_USERNAME_FILE) --password=$$(cat $$MONGO_INITDB_ROOT_PASSWORD_FILE) --authenticationDatabase=admin --eval=\"db.adminCommand('ping')\""]
+    networks:
+      atlas:
+    secrets:
+      - mongo_root_username
+      - mongo_root_password
+    volumes:
+      - mongodb:/data/db
+
+  nginx:
+    image: nginx-certbot-geoip
+    build:
+      dockerfile: nginx.Dockerfile
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        delay: 5s
+        failure_action: rollback
+        order: start-first
+    environment:
+      - CERTBOT_EMAIL=${CERTBOT_EMAIL:-infrastructure@owow.io}
+      - STAGING=${CERTBOT_STAGING:-0}
+    networks:
+      atlas:
+    ports:
+      - 0.0.0.0:80:80
+      - 0.0.0.0:443:443
+    volumes:
+      - nginx_secrets:/etc/letsencrypt
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d/000_http.conf:/etc/nginx/user_conf.d/000_http.conf:ro
+      - ./nginx/conf.d/100_default.conf:/etc/nginx/user_conf.d/100_default.conf:ro
+      - ./nginx/conf.d/staging/500_web.conf:/etc/nginx/user_conf.d/500_web.conf:ro
+      - geoipdb:/etc/nginx/geoip:ro
+      - nginx_logs:/var/log/atlas
+
+  # Metrics -> Prometheus, logs -> Loki, the nginx access log -> ClickHouse.
+  # The config is the hub's fleet standard and ships inside the image: update by bumping
+  # the tag, do not vendor a copy of the layers here.
+  otelcol:
+    image: registry.digitalocean.com/owow/otelcol:1.0.0
+    command:
+      - --config=/etc/otelcol/base.yaml
+      - --config=/etc/otelcol/nginx.yaml
+      - --config=/etc/otelcol/docker.yaml
+    # The container log files under /var/lib/docker and the storage volume are root-only.
+    user: "0:0"
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        delay: 5s
+        failure_action: rollback
+        # The read-offset store is a bbolt file under an exclusive lock, so a brief
+        # double-run leaves the new task unable to open it and the update rolls back.
+        order: stop-first
+      resources:
+        limits:
+          # Keep OTELCOL_MEMORY_LIMIT_MIB below this so the collector sheds load
+          # before the cgroup kills it.
+          memory: 256M
+    environment:
+      - PROJECT=BOOTSTRAP_PROJECT_NAME
+      - OBSERVATORY_ENV=staging
+      - OBSERVATORY_HOST=${OBSERVATORY_HOST}
+      - OBSERVATORY_USER=${OBSERVATORY_USER:-}
+      - OBSERVATORY_PASSWORD=${OBSERVATORY_PASSWORD:-}
+      - OTELCOL_MEMORY_LIMIT_MIB=192
+      - NGINX_ACCESS_LOG=/var/log/atlas/access.log
+      # <stack>_<service>: how the collector recognises and drops its own log lines.
+      - OTELCOL_CONTAINER_LABEL=atlas_otelcol
+    networks:
+      atlas:
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      # Left at /, the disk and filesystem scrapers describe the container's own
+      # image layers instead of the droplet.
+      - /:/hostfs:ro
+      - otelcol_storage:/var/lib/otelcol/storage
+      - nginx_logs:/var/log/atlas:ro
+
+  web:
+    image: registry.digitalocean.com/owow/BOOTSTRAP_PROJECT_NAME-web:${ATLAS_WEB_VERSION}
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        delay: 5s
+        failure_action: rollback
+        order: start-first
+    entrypoint: ["sh", "-c", "set -a && . /run/secrets/web_env_file && set +a && exec node /app/apps/web/server.js"]
+    environment:
+      PORT: 3000
+      HOSTNAME: 0.0.0.0
+    healthcheck:
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+      test: [CMD, wget, --no-verbose, --tries=1, --spider, http://0.0.0.0:3000/api/health]
+    networks:
+      atlas:
+    secrets:
+      - web_env_file
+
+  mailpit:
+    image: 'axllent/mailpit:latest'
+    ports:
+      - '0.0.0.0:${MAIL_PORT:-1025}:1025'
+      - '0.0.0.0:${MAILPIT_DASHBOARD_PORT:-8025}:8025'
+    networks:
+      atlas:
+
+volumes:
+  geoipdb:
+  mongodb:
+  nginx_secrets:
+  nginx_logs:
+  otelcol_storage:
+
+networks:
+  atlas:
+    external: false

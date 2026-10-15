@@ -1,0 +1,7 @@
+---
+# A restart, not a reload: dockerd does not pick up log-opts on SIGHUP, and Swarm
+# rules out live-restore, so the whole stack goes down with it.
+- name: restart docker
+  ansible.builtin.service:
+    name: docker
+    state: restarted

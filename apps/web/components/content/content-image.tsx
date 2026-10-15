@@ -1,0 +1,63 @@
+'use client';
+
+import NextImage, { type ImageLoader, type ImageProps } from 'next/image';
+import { useCallback } from 'react';
+import {
+    getObjectFitClassName,
+    getObjectPositionClassName,
+} from '@/features/payload/utils/image-block-config';
+import type { Media, MediaImage } from '@/payload-types';
+import { cn } from '@/utils/cn';
+
+export type ImageCMSProps = Partial<ImageProps> & {
+    image?: MediaImage | null;
+};
+
+const isSvg = (filename?: string | null) =>
+    filename && /\.svg$/i.test(filename);
+
+export function ImageCMS({ image, className, ...props }: ImageCMSProps) {
+    const media = image?.media as Media | undefined;
+    const sizes = media?.sizes;
+
+    const imageLoader = useCallback<ImageLoader>(
+        ({ src, width }) => {
+            if (width <= 400 && sizes?.w400?.url) return sizes.w400.url;
+            if (width <= 640 && sizes?.w640?.url) return sizes.w640.url;
+            if (width <= 750 && sizes?.w750?.url) return sizes.w750.url;
+            if (width <= 828 && sizes?.w828?.url) return sizes.w828.url;
+            if (width <= 1080 && sizes?.w1080?.url) return sizes.w1080.url;
+            if (width <= 1200 && sizes?.w1200?.url) return sizes.w1200.url;
+            if (width <= 1920 && sizes?.w1920?.url) return sizes.w1920.url;
+            if (width <= 2048 && sizes?.w2048?.url) return sizes.w2048.url;
+            return sizes?.w3840?.url ?? src;
+        },
+        [sizes],
+    );
+
+    if (!image || !media) return null;
+
+    const { imagePreload, objectFit, objectPosition } = image;
+    const { url, description, width, height } = media;
+
+    if (!url) return null;
+
+    return (
+        <NextImage
+            alt={description ?? ''}
+            src={url}
+            {...(isSvg(media?.filename)
+                ? { unoptimized: true }
+                : { loader: imageLoader })}
+            width={props.fill ? undefined : (width ?? undefined)}
+            height={props.fill ? undefined : (height ?? undefined)}
+            priority={!!imagePreload}
+            {...props}
+            className={cn(
+                getObjectPositionClassName(objectPosition),
+                getObjectFitClassName(objectFit),
+                className,
+            )}
+        />
+    );
+}
