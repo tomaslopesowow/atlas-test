@@ -1,0 +1,6 @@
+@layer payload {
+    @tailwind utilities;
+    html {
+        scroll-behavior: smooth;
+    }
+}

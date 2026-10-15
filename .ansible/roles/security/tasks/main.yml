@@ -1,0 +1,17 @@
+---
+- name: Install fail2ban
+  ansible.builtin.apt:
+    pkg: fail2ban
+    state: latest
+  notify: start fail2ban
+
+- name: Add allow ports to firewall
+  community.general.ufw:
+    rule: allow
+    port: "{{ item }}"
+    proto: tcp
+  loop: "{{ open_ports }}"
+
+- name: Enable firewall
+  community.general.ufw:
+    state: enabled
