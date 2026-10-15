@@ -1,0 +1,18 @@
+import { graphql } from '@/features/shopify/api/graphql.storefront';
+import type { ResultOf } from 'gql.tada';
+import { ImageFragment } from './media';
+
+export const CollectionListItem = graphql(
+    `fragment collectionListItem on Collection {
+        id
+        handle
+        title
+        description
+        image {
+            ...image
+        }
+    }`,
+    [ImageFragment],
+);
+
+export type CollectionListItemType = ResultOf<typeof CollectionListItem>;
