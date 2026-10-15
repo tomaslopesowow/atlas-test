@@ -1,0 +1,50 @@
+{
+    "common": {
+        "all": "all",
+        "event": "event",
+        "previous": "previous",
+        "next": "next"
+    },
+    "Index": {
+        "title": "Hallo wereld!"
+    },
+    "Payload": {
+        "how-to-button": "How to manage your website"
+    },
+    "CookieTable": {
+        "cookie": "Cookie",
+        "term": "Term",
+        "description": "Description",
+        "function": "Function",
+        "edit-preferences": "Edit preferences"
+    },
+    "CookieNotice": {
+        "title": "Cookie Notice",
+        "description": "We use cookies to ensure you get the best experience on our website.",
+        "accept": "Accept",
+        "deny": "Deny",
+        "allow-selection": "Allow selection",
+        "accept-all": "Accept all",
+        "save-preferences": "Save preferences"
+    },
+    "ecommerce": {
+        "product-sort": {
+            "sort-by": "Sort by",
+            "best-selling": "Best Selling",
+            "price-low-to-high": "Price: Low to High",
+            "price-high-to-low": "Price: High to Low",
+            "title-a-z": "Title: A-Z",
+            "title-z-a": "Title: Z-A",
+            "featured": "Featured"
+        },
+        "product-filters": {
+            "filters": "Filters",
+            "in-stock": "In Stock",
+            "out-of-stock": "Out of Stock"
+        },
+        "product-list": {
+            "loading": "Loading...",
+            "load-more": "Load more"
+        }
+    }
+}

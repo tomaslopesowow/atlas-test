@@ -1,0 +1,60 @@
+---
+description: Rules for Architecture and Design, directory and file structure
+globs: 
+alwaysApply: false
+---
+# Architecture and Design Rules
+
+<rule>
+name: atlas_architecture
+description: Standards for maintaining proper architecture and design patterns
+filters:
+  - type: file_extension
+    pattern: "\\.(?:js|jsx|ts|tsx)$"
+  - type: content
+    pattern: "(?i)component|architecture|structure|design"
+
+actions:
+  - type: suggest
+    message: |
+      When implementing architecture and design:
+
+      ## Monorepo Structure
+      - Organize packages by domain or functionality (e.g., apps/, packages/)
+      - Use pnpm workspaces for dependency management
+      - Implement centralized build configuration with inheritance
+      - Configure cross-package testing with shared configuration
+      - Establish clear package boundaries and interfaces
+
+      ## Component Architecture
+      - Follow atomic design principles (atoms, molecules, organisms, templates, pages)
+      - Implement unidirectional data flow (props down, events up)
+      - Separate UI, business logic, and data access concerns
+      - Use composition over inheritance for component reuse
+      - Implement container/presentation pattern for complex components
+
+      ## Internationalization
+      - Configure i18n framework with namespaced translation files
+      - Implement locale detection and switching
+      - Extract all UI strings into translation resources
+      - Handle RTL/LTR layout differences with directional styles
+      - Format dates, numbers, and currencies according to locale standards
+
+      ## Security
+      - Use role-based authorization
+      - Validate all user inputs with strong typing and schemas
+      - Apply Content Security Policy and other security headers
+
+      ## Performance
+      - Implement dynamic imports for route-based code splitting
+      - Optimize bundle size with tree shaking and code elimination
+      - Use concurrency for non-interdependent promises.
+
+examples:
+  - input: "Creating a new component structure"
+    output: "Component follows atomic design principles with clear separation of concerns and efficient data flow patterns"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>

@@ -1,0 +1,66 @@
+{
+    "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+    "organizeImports": {
+        "enabled": true
+    },
+    "formatter": {
+        "enabled": true,
+        "indentWidth": 4,
+        "indentStyle": "space"
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true,
+            "performance": {
+                "noAccumulatingSpread": "warn"
+            },
+            "style": {
+                "noNonNullAssertion": "warn"
+            },
+            "suspicious": {
+                "noAssignInExpressions": "off"
+            },
+            "correctness": {
+                "noUnusedImports": "error"
+            }
+        }
+    },
+    "javascript": {
+        "formatter": {
+            "quoteStyle": "single"
+        }
+    },
+    "files": {
+        "ignore": [
+            ".next",
+            ".turbo",
+            "cosmos.imports.ts",
+            "env.*.d.ts",
+            "payload-env.d.ts",
+            "payload-types.ts",
+            "shopify-env.d.ts",
+            "legacy",
+            "**/importMap.js",
+            "apps/web/app/(payload)/**",
+            "apps/web/cache/**"
+        ]
+    },
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true
+    },
+    "overrides": [
+        {
+            "include": ["apps/web/features/payload/features/otp/**"],
+            "linter": {
+                "rules": {
+                    "suspicious": {
+                        "noExplicitAny": "off"
+                    }
+                }
+            }
+        }
+    ]
+}
