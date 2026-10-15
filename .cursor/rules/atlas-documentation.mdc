@@ -1,0 +1,64 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Documentation Standards
+
+<rule>
+name: atlas_documentation
+description: Standards for maintaining proper documentation across the codebase
+filters:
+  - type: file_extension
+    pattern: "\\.(?:md|mdx|js|jsx|ts|tsx)$"
+  - type: content
+    pattern: "(?i)documentation|docs|readme|comment"
+
+actions:
+  - type: suggest
+    message: |
+      When creating or updating documentation:
+
+      ## Code Comments
+      - Use JSDoc for function and class documentation
+      - Document complex algorithms and business logic
+      - Keep comments up-to-date with code changes
+      - Document edge cases and workarounds
+      - Use proper annotations (@param, @returns, etc.)
+
+      ## README Files
+      - Include clear project description
+      - Document installation steps
+      - Provide usage examples
+      - List dependencies and requirements
+      - Include troubleshooting information
+
+      ## API Documentation
+      - Document all endpoints
+      - Include request/response examples
+      - Document error responses
+      - Provide authentication information
+      - Document rate limits and quotas
+
+      ## Component Documentation
+      - Document component props
+      - Include usage examples
+      - Document component variants
+      - Provide accessibility information
+      - Document state management
+
+      ## Architecture Documentation
+      - Document system architecture
+      - Include data flow diagrams
+      - Document integration points
+      - Provide deployment information
+      - Document security considerations
+
+examples:
+  - input: "Creating a new component"
+    output: "Include JSDoc comments, document props, and provide usage examples"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>

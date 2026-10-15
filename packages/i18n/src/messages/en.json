@@ -1,0 +1,232 @@
+{
+    "common": {
+        "all": "all",
+        "chapter": "Chapter {value, select, 1 {one} 2 {two} 3 {three} 4 {four} 5 {five} 6 {six} 7 {seven} 8 {eight} 9 {nine} 10 {ten} other {#}}",
+        "downloadAll": "Download all",
+        "drag": "Drag",
+        "event": "event",
+        "keepScrolling": "Keep scrolling",
+        "load-more": "Load more",
+        "loading": "Loading...",
+        "mediaKit": "Media kit",
+        "next": "next",
+        "part": "Part",
+        "pause": "Pause",
+        "play": "Play",
+        "pressToPlay": "{action, select, play {Press to play} pause {Press to pause} other {Press to play}}",
+        "previous": "prev",
+        "share": "Share",
+        "spotlight": "spotlight",
+        "thisIs": "This is",
+        "viewAll": "View all",
+        "phone": "Phone",
+        "email": "Email",
+        "backToHome": "Back to home"
+    },
+    "Article": {
+        "writtenBy": "Written by",
+        "writtenByWithName": "by <authorName></authorName>",
+        "xMinutesRead": "{minutes} min read"
+    },
+    "BuildProcess": {
+        "imagine": "Imagine",
+        "design": "Design",
+        "build": "Build"
+    },
+    "Filter": {
+        "-name": "Name (Z-A)",
+        "-price": "Price (descending)",
+        "-year": "Year (descending)",
+        "clearAll": "Clear all",
+        "filter": "Filter",
+        "filterAndSort": "Filter and sort",
+        "grid": "grid",
+        "length": "Length",
+        "list": "list",
+        "name": "Name",
+        "price": "Price",
+        "search": "Search",
+        "searchPlaceholder": "Search for name or hull number",
+        "show": "Show",
+        "sortBy": "Sort by",
+        "year": "Year"
+    },
+    "FleetOverview": {
+        "all": "all",
+        "spotlight": "spotlight"
+    },
+    "YachtDetail": {
+        "nextFeadship": "Next Feadship",
+        "hull": "Hull no.",
+        "length": "Length",
+        "year": "Year",
+        "keepScrolling": "Keep scrolling",
+        "price": "Price",
+        "scrollToExplore": "Scroll to explore",
+        "stateRooms": "{count, plural, =0 {No staterooms} =1 {stateroom} other {staterooms}}",
+        "thisIs": "This is {title}"
+    },
+    "Navigation": {
+        "home": "Home",
+        "toggle-menu": "Toggle menu",
+        "menu": "Menu",
+        "language-select": "Select language",
+        "next": "next",
+        "open-submenu": "Open submenu for",
+        "switch-to-language": "Switch to {locale} language",
+        "play-sound": "Play sound",
+        "mute-sound": "Mute sound",
+        "discover": "Discover"
+    },
+    "Search": {
+        "title": "Search",
+        "results": "results for",
+        "error": "Error fetching search results",
+        "news": "News",
+        "cases": "Cases",
+        "fleet": "Fleet",
+        "resale": "Resale"
+    },
+    "SkipLink": {
+        "skip-to-main-navigation": "Skip to main navigation",
+        "skip-to-main-content": "Skip to main content",
+        "skip-to-footer": "Skip to footer"
+    },
+    "Index": {
+        "title": "Hallo wereld!"
+    },
+    "Loader": {
+        "get-on-board": "Get on board"
+    },
+    "Footer": {
+        "rights": "All rights reserved.",
+        "newsletter": {
+            "title": "Newsletter",
+            "emailDescription": "Subscribe to our newsletter to get the latest news and updates.",
+            "buttonText": "Subscribe",
+            "emailPlaceholder": "Enter your email",
+            "emailTerms": "By subscribing, you agree to our privacy policy and terms and conditions."
+        }
+    },
+    "Series": {
+        "episodes": "{count, plural, =0 {No episodes} =1 {1 episode} other {# episodes}}"
+    },
+    "CookieTable": {
+        "cookie": "Cookie",
+        "term": "Term",
+        "description": "Description",
+        "consent-label": "Consent Label",
+        "edit-preferences": "Edit preferences"
+    },
+    "CookieNotice": {
+        "title": "We use cookies",
+        "description": "This website uses cookies to enhance your browsing experience and to collect information about how you interact with our site. We use this information to improve site performance and ensure user-friendliness.",
+        "deny": "Deny all",
+        "allow-selection": "Allow selection",
+        "accept-all": "Accept all",
+        "save-preferences": "Save preferences",
+        "param_ad_personalization": "Ad personalisation",
+        "param_ad_storage": "Ad storage",
+        "param_ad_user_data": "Ad user data",
+        "param_analytics_storage": "Analytics storage",
+        "necessary": "Necessary",
+        "analytics_storage": "Analytics",
+        "ad_storage": "Marketing"
+    },
+    "ecommerce": {
+        "product-sort": {
+            "sort-by": "Sort by",
+            "best-selling": "Best Selling",
+            "price-low-to-high": "Price: Low to High",
+            "price-high-to-low": "Price: High to Low",
+            "title-a-z": "Title: A-Z",
+            "title-z-a": "Title: Z-A",
+            "featured": "Featured"
+        },
+        "product-filters": {
+            "filters": "Filters",
+            "in-stock": "In Stock",
+            "out-of-stock": "Out of Stock"
+        },
+        "product-list": {
+            "loading": "Loading...",
+            "load-more": "Load more"
+        }
+    },
+    "Categories": {
+        "all": "All",
+        "milestones": "Milestones",
+        "innovation": "Innovation",
+        "sustainability": "Sustainability",
+        "design": "Design",
+        "crafting": "Crafting",
+        "perspectives": "Perspectives",
+        "events": "Events"
+    },
+    "MailchimpForm": {
+        "mergeFields": {
+            "EMAIL": "Email",
+            "FNAME": "First name",
+            "LNAME": "Last name",
+            "MEDIUM": "Medium",
+            "JOB_TITLE": "Job title",
+            "COMPANY": "Company",
+            "INDUSTRY": "Industry",
+            "COUNTRY": "Country",
+            "CITY": "City",
+            "ZIP": "ZIP",
+            "PHONE": "Phone",
+            "ADDRESS": "Address"
+        },
+        "formErrors": {
+            "invalidRequest": "Invalid request. Please try again.",
+            "validationFailed": "Please fill in all required fields correctly.",
+            "serverError": "Something went wrong. Please try again later.",
+            "unknownError": "Something went wrong. Please try again later."
+        },
+        "fieldError": {
+            "EMAIL": "Please enter a valid email address.",
+            "FNAME": "Please enter a valid first name.",
+            "LNAME": "Please enter a valid last name.",
+            "MEDIUM": "Please enter a valid medium.",
+            "JOB_TITLE": "Please enter a valid job title.",
+            "COMPANY": "Please enter a valid company.",
+            "INDUSTRY": "Please enter a valid industry.",
+            "COUNTRY": "Please enter a valid country.",
+            "CITY": "Please enter a valid city.",
+            "ZIP": "Please enter a valid ZIP code.",
+            "PHONE": "Please enter a valid phone number.",
+            "ADDRESS": "Please enter a valid address."
+        },
+        "success": "Thank you for subscribing!"
+    },
+    "emails": {
+        "otp": {
+            "subject": "Login Verification",
+            "body": "Your one-time password code is:",
+            "expiry": "This code expires in {minutes} minutes.",
+            "footer": "If you did not request this code, you can safely ignore this email."
+        }
+    },
+    "YachtSpecifications": {
+        "architect": "Naval architect",
+        "exteriorDesign": "Exterior design",
+        "interiorDesign": "Interior design",
+        "length": "Length",
+        "beam": "Beam",
+        "draught": "Draught",
+        "engines": "Main engines",
+        "generators": "Generators",
+        "fuelCapacity": "Fuel capacity",
+        "waterCapacity": "Fresh water capacity",
+        "range": "Range at cruising speed",
+        "specifications": "Specifications",
+
+        "categories": {
+            "design": "Design",
+            "refit": "Refit Specifications",
+            "specifications": "Specifications",
+            "propulsion": "Propulsion"
+        }
+    }
+}

@@ -1,0 +1,84 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.3.10/schema.json",
+    "assist": { "actions": { "source": { "organizeImports": "off" } } },
+    "formatter": {
+        "enabled": true,
+        "indentWidth": 4,
+        "indentStyle": "space"
+    },
+    "css": {
+        "parser": {
+            "tailwindDirectives": true
+        }
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true,
+            "performance": {
+                "noAccumulatingSpread": "warn",
+                "noImgElement": "off"
+            },
+            "style": {
+                "noNonNullAssertion": "warn"
+            },
+            "suspicious": {
+                "noAssignInExpressions": "off"
+            },
+            "correctness": {
+                "noUnusedImports": "error",
+                "useParseIntRadix": "off"
+            }
+        }
+    },
+    "javascript": {
+        "formatter": {
+            "quoteStyle": "single"
+        }
+    },
+    "files": {
+        "includes": [
+            "**",
+            "!**/.next",
+            "!**/.turbo",
+            "!**/env.*.d.ts",
+            "!**/next-env.d.ts",
+            "!**/payload-env.d.ts",
+            "!**/payload-types.ts",
+            "!**/shopify-env.d.ts",
+            "!**/legacy",
+            "!**/importMap.js",
+            "!**/apps/web/app/(payload)",
+            "!**/apps/web/cache",
+            "!**/apps/web/seed",
+            "!**/node_modules"
+        ]
+    },
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true
+    },
+    "overrides": [
+        {
+            "includes": ["**/apps/web/features/payload/features/otp/**"],
+            "linter": {
+                "rules": {
+                    "suspicious": {
+                        "noExplicitAny": "off"
+                    }
+                }
+            }
+        },
+        {
+            "includes": ["**/*.css"],
+            "linter": {
+                "rules": {
+                    "suspicious": {
+                        "noUnknownAtRules": "off"
+                    }
+                }
+            }
+        }
+    ]
+}

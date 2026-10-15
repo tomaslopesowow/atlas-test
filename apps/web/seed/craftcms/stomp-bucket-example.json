@@ -1,0 +1,17 @@
+{
+    "bucket": "stomp-feadship-prod",
+    "key": "craft\/media\/images\/20250915-3634-0050-copy.jpg",
+    "edits": {
+        "jpeg": {
+            "quality": 85,
+            "trellisQuantisation": true,
+            "overshootDeringing": true,
+            "optimizeScans": true
+        },
+        "resize": {
+            "width": 3840,
+            "fit": "contain",
+            "withoutEnlargement": true
+        }
+    }
+}

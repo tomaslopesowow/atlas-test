@@ -1,0 +1,18 @@
+{
+    "targetId": 12364245,
+    "fieldId": 12,
+    "filename": "Feadship-ONE-Precision-in-every-line.json",
+    "kind": "json",
+    "alt": null,
+    "width": null,
+    "height": null,
+    "size": 1079,
+    "focalPoint": null,
+    "dateCreated": "2025-11-08T09:52:40.000Z",
+    "volumeHandle": "youtube",
+    "s3": {
+        "bucket": "stomp-feadship-prod",
+        "key": "craft/youtube/Feadship-ONE-Precision-in-every-line.json"
+    },
+    "url": "https://stomp-feadship-prod.s3.amazonaws.com/craft/youtube/Feadship-ONE-Precision-in-every-line.json"
+}

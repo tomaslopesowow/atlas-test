@@ -1,0 +1,18 @@
+.next
+.sentryclirc
+/blob-report/
+/playwright-report/
+/playwright/.cache/
+/test-results/
+node_modules/
+uploads/
+analyze/
+tsconfig.tsbuildinfo
+# Sentry Config File
+.env.sentry-build-plugin
+
+# Playwright
+/playwright/.auth/
+
+# Local dev public files
+/public/__dev__/

@@ -1,0 +1,64 @@
+---
+description: Standards for implementing proper accessibility features
+globs: 
+alwaysApply: false
+---
+# Accessibility Implementation Rules
+
+<rule>
+name: atlas_accessibility
+description: Standards for implementing proper accessibility features
+filters:
+  - type: file_extension
+    pattern: "\\.(?:jsx|tsx|html)$"
+  - type: content
+    pattern: "(?i)accessibility|a11y|aria|screen reader"
+
+actions:
+  - type: suggest
+    message: |
+      When implementing accessibility features:
+
+      ## Semantic HTML
+      - Use HTML5 semantic elements (<header>, <nav>, <main>, etc.)
+      - Maintain correct heading hierarchy (h1-h6)
+      - Add appropriate ARIA roles when HTML semantics are insufficient
+      - Implement document landmarks (banner, navigation, main, etc.)
+      - Ensure all form controls have associated labels
+
+      ## Keyboard Navigation
+      - Manage focus order and states logically
+      - Ensure all interactive elements are keyboard accessible
+      - Provide keyboard shortcuts for complex interactions
+      - Make focus indicators clearly visible
+      - Include skip links for bypassing repetitive content
+
+      ## Screen Reader Support
+      - Use descriptive ARIA attributes (aria-label, aria-expanded, etc.)
+      - Provide meaningful alt text for images
+      - Implement live regions for dynamic content updates
+      - Include descriptions for complex widgets
+      - Announce critical state changes to assistive technology
+
+      ## Visual Accessibility
+      - Maintain WCAG AA contrast ratio (4.5:1 for normal text)
+      - Support text scaling up to 200% without loss of content
+      - Design responsively for various devices and zoom levels
+      - Respect prefers-reduced-motion media query
+      - Design distinct focus and hover states
+
+      ## Testing & Compliance
+      - Test with screen readers (NVDA, VoiceOver, JAWS)
+      - Follow WCAG 2.1 AA standards
+      - Conduct testing with actual users with disabilities
+      - Use automated tools (axe, Lighthouse) for initial checks
+      - Document accessibility features and known issues
+
+examples:
+  - input: "Adding a new form component"
+    output: "Form includes labeled controls, appropriate ARIA attributes, and complete keyboard support"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule> 

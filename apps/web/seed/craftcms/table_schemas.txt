@@ -1,0 +1,471 @@
+Found 14 relevant tables
+
+================================================================================
+feadship-craft3_prod.feadship-craft3_prod.craft_assets
+================================================================================
+Total Columns: 16
+
+  id                                       int
+  volumeId                                 int
+  folderId                                 int
+  uploaderId                               int
+  filename                                 varchar
+  kind                                     varchar
+  alt                                      text
+  width                                    int unsigned
+  height                                   int unsigned
+  size                                     bigint unsigned
+  focalPoint                               varchar
+  deletedWithVolume                        tinyint
+  keptFile                                 tinyint
+  dateModified                             datetime
+  dateCreated                              datetime
+  dateUpdated                              datetime
+
+================================================================================
+feadship-craft3_prod.feadship-craft3_prod.craft_content
+================================================================================
+Total Columns: 216
+
+  id                                       int
+  elementId                                int
+  siteId                                   int
+  title                                    varchar
+  field_post_title                         text
+  field_post_subtitle                      text
+  field_post_summary                       varchar
+  field_user_role                          text
+  field_user_about                         text
+  field_user_phone                         text
+  field_user_email                         text
+  field_post_event_start                   datetime
+  field_post_event_end                     datetime
+  field_page_title                         text
+  field_page_intro                         text
+  field_page_subtitle                      text
+  field_yacht_year                         int
+  field_asset_alt                          text
+  field_asset_caption                      text
+  field_asset_credits                      text
+  field_buildEnd                           datetime
+  field_buildPostMilestone                 tinyint
+  field_buildPostText                      text
+  field_buildStart                         datetime
+  field_user_title                         varchar
+  field_yacht_showContactDetails           tinyint
+  field_yacht_email                        text
+  field_yacht_phone                        text
+  field_meta_cardButtonLabel               varchar
+  field_user_showProfile                   tinyint
+  field_yacht_contactPersonName            text
+  field_yacht_contactPersonTitle           varchar
+  field_poi_category                       varchar
+  field_poi_description                    text
+  field_poi_name                           varchar
+  field_poi_website                        varchar
+  field_user_firstName                     varchar
+  field_user_lastName                      text
+  field_user_showContactDetails            tinyint
+  field_MMSI                               varchar
+  field_mail_feadship_info                 text
+  field_mail_feadship_myfeadship           text
+  field_mail_feadship_support              text
+  field_page_altUrl                        text
+  field_page_text                          text
+  field_buildHideStats                     tinyint
+  field_post_location                      text
+  field_disclaimer_newsletter              text
+  field_disclaimer_pressList               text
+  field_magazine_pageBackgroundColor       char
+  field_magazine_pageContent               text
+  field_magazine_pageContentLayout         varchar
+  field_magazine_coverLogoColor            varchar
+  field_magazine_pageCustom                text
+  field_magazine_pageCustomTemplateName    text
+  field_magazine_pageImageLayout           varchar
+  field_magazine_pageImageShader           varchar
+  field_magazine_pageSubtitle              text
+  field_magazine_pageTextColor             varchar
+  field_magazine_pageTextPopup             tinyint
+  field_magazine_pageTitle                 text
+  field_magazine_pageVideoAutoPlay         tinyint
+  field_magazine_pageTextPopupLabel        text
+  field_magazine_pageIntro                 text
+  field_magazine_published                 tinyint
+  field_post_mediaTopics                   text
+  dateCreated                              datetime
+  dateUpdated                              datetime
+  uid                                      char
+  field_company_description                text
+  field_company_city                       text
+  field_company_email                      varchar
+  field_company_phone                      text
+  field_company_website                    text
+  field_job_title                          text
+  field_page_custom                        text
+  field_post_seo_settings                  text
+  field_defaultSiteNewsletterHandle        text
+  field_disclaimer_jobApply                text
+  field_gallery_layout                     varchar
+  field_gallery_gridCellSize               varchar
+  field_gallery_gridFittingPolicy          varchar
+  field_gallery_containerWidth             varchar
+  field_company_location                   text
+  field_yacht_length                       decimal
+  field_yacht_hull                         text
+  field_user_mobilePhone                   text
+  field_post_publishableContexts           varchar
+  field_page_layoutStyle                   varchar
+  field_page_filterChildrenByTag           tinyint
+  field_magazine_theme                     varchar
+  field_magazine_controlsPosition          varchar
+  field_wbfDateEmployed                    datetime
+  field_gallery_presentationTheme          varchar
+  field_vimeoDirectLink                    text
+  field_asset_youtubePlaylists             json
+  field_homepage_firstYachtLabel           text
+  field_homepage_secondYachtLabel          text
+  field_homepage_relatedPageOrder          varchar
+  field_gallery_presentationMaxImageWidth  int
+  field_asset_loopStart                    int
+  field_category_summary                   varchar
+  field_category_subtitle                  varchar
+  field_scout_searchable_lklvxsbx          tinyint
+  field_element_textBelowImageOnMobile_foaexumv tinyint
+  field_element_mobileFixedHeight_hmibipcq smallint
+  field_element_showButton_smjzegrg        tinyint
+  field_element_position_owckkayq          varchar
+  field_element_backgroundSizePercentage_jvuzcpme smallint
+  field_element_link_imegclct              text
+  field_element_accordion_sffchaqm         text
+  field_element_buttonSize_hpkcxboq        varchar
+  field_element_SML_afnhydwl               varchar
+  field_element_imageRatio_cylpdmfk        varchar
+  field_element_sliderNavStyle_jnqinxrf    varchar
+  field_element_themeColor_ipceboix        varchar
+  field_element_slideHeight_ntfvfydx       varchar
+  field_element_imageWidth_ccljiwjj        smallint
+  field_element_map_rywullme               text
+  field_element_useSliderOnDesktop_nxjdypud tinyint
+  field_element_transitionEffect_kcodksph  varchar
+  field_element_verticalAlignment_dfwmmugw varchar
+  field_element_buttonStyle_qvqmvjep       varchar
+  field_element_subheading_wpsaftia        varchar
+  field_element_html_eeiyqgpy              text
+  field_site_customStyles_acodzugv         text
+  field_element_desktopFixedHeight_lgyjxuwf smallint
+  field_element_backgroundSize_ehixtnnv    varchar
+  field_element_sliderAutoplay_bwvvaqhz    tinyint
+  field_element_richText_agxpybwd          text
+  field_element_imageHeight_jfijsnkq       varchar
+  field_element_buttonShape_tyelzgdp       varchar
+  field_element_columnWidth_uhtogsex       varchar
+  field_element_postLimit_zexnqaaf         smallint
+  field_element_breakpoint_zlmprgdj        varchar
+  field_element_limit_njrqozhh             int
+  field_element_text_tqjquemt              text
+  field_element_fullPageWidth_vucpxyve     tinyint
+  field_element_imageAlignment_bylkrivn    varchar
+  field_element_textAlignment_pvjyzuxg     varchar
+  field_element_overlayStyle_qaqnsjlm      varchar
+  field_element_useSliderOnMobile_rblrugko tinyint
+  field_element_heading_tmqmxomc           varchar
+  field_element_wideDisplay_hvssplbw       tinyint
+  field_element_cardStyle_tteajxkz         varchar
+  field_element_backgroundColor_sadfljrc   varchar
+  field_element_columns_jrxfyodq           varchar
+  field_element_backgroundRepeat_ionpdbes  varchar
+  field_element_transitionDuration_dpgxebqw int
+  field_element_textColor_oiydnmdh         varchar
+  field_poi_geolocation_vmnsoaud           text
+  field_esb_programItemType_qqbhizfk       varchar
+  field_esb_geoLocation_cbtmxflz           text
+  field_esb_maxReservations_weqvituj       int
+  field_esb_startDate_amnhregd             datetime
+  field_esb_calendar_rftxrrja              int
+  field_esb_endDate_kroskkim               datetime
+  field_esb_summary_rakqhyys               text
+  field_magazine_orderUrl_vlgwkval         varchar
+  field_poi_phone_qlytvumz                 varchar
+  field_poi_email_ciwctqtb                 varchar
+  field_yacht_fNumber_vtaocurx             varchar
+  field_esb_description_uirsybty           text
+  field_esb_userDeparture_iufzldty         datetime
+  field_esb_userArrival_udflousx           datetime
+  field_mediahub_hashtagIncludeList_hamufprw varchar
+  field_esb_bookingDate_hxsjznnd           datetime
+  field_esb_bookingName_qookgqnt           text
+  field_esb_timeInterval_wicfraxg          int
+  field_esb_bookingTotalGuests_xrnfgpjx    int
+  field_esb_startTime_miugqvwi             time
+  field_esb_endTime_gwqszvpa               time
+  field_element_headingSize_jsofxzak       varchar
+  field_element_showTitle_tdewqysx         tinyint
+  field_element_pageHeaderWidth_pbnziixw   varchar
+  field_app_version_vsyuviaq               text
+  field_yacht_previousNames_yzegvxto       text
+  field_yacht_currentName_hwbkzdez         text
+  field_login_code_rzwvbmdw                varchar
+  field_login_code_expire_hstvfyul         datetime
+  field_buildLiveStreamStart_ridpxaqd      datetime
+  field_buildLiveStreamStart_tz_ridpxaqd   varchar
+  field_app_feedback_jfxedljm              varchar
+  field_app_links_awwrizwe                 text
+  field_app_GATag_mvsbahmd                 text
+  field_buildLiveStreamEnd_uulnaoya        datetime
+  field_buildLiveStreamEnd_tz_uulnaoya     varchar
+  field_buildShowMilestoneTracking_zzzloczc tinyint
+  field_app_about_sgrwhnby                 text
+  field_app_pusherKey_kksueknk             text
+  field_element_dateEnd_fcxxmrby           datetime
+  field_element_dateStart_xhpfzeqq         datetime
+  field_code1_mtlweghj                     text
+  field_logoSettings_mimtmzti              text
+  field_user_linkedin_ceafwrcw             varchar
+  field_IMO_xuyykrxe                       varchar
+  field_banner_delay_rwwmagsc              int
+  field_banner_showOn_olwtguwr             varchar
+  field_element_trueFalse_grjtbldd         tinyint
+  field_banner_type_kmzugvtp               varchar
+  field_esb_maxBookings_vioazist           int
+  field_viewCount_nzbohuvo                 int
+  field_shortLink_gammjlop                 varchar
+  field_yacht_contexts_tifhfnug            varchar
+  field_poi_feadship_fkggntqs              tinyint
+  field_post_pin_sygebudo                  varchar
+  field_esb_showOnlyYachtList_ilhoakka     tinyint
+  field_post_canonicalUrl_boajhavb         varchar
+  field_code2_cofjbzzn                     text
+  field_homepage_includeSections_ewmlphgt  varchar
+  field_page_showRelatedContent_slrhqznj   varchar
+  field_code4_gtdcqamm                     text
+  field_code3_wnclfncs                     text
+  field_post_taxonomy_btfinxac             varchar
+  field_banner_selectedPaths_tctbiynz      text
+  field_yacht_delivery_qvmykdyl            datetime
+
+================================================================================
+feadship-craft3_prod.feadship-craft3_prod.craft_elements
+================================================================================
+Total Columns: 13
+
+  id                                       int
+  canonicalId                              int
+  draftId                                  int
+  revisionId                               int
+  fieldLayoutId                            int
+  type                                     varchar
+  enabled                                  tinyint unsigned
+  archived                                 tinyint unsigned
+  dateCreated                              datetime
+  dateUpdated                              datetime
+  dateLastMerged                           datetime
+  dateDeleted                              datetime
+  uid                                      char
+
+================================================================================
+feadship-craft3_prod.feadship-craft3_prod.craft_elements_sites
+================================================================================
+Total Columns: 9
+
+  id                                       int
+  elementId                                int
+  siteId                                   int
+  slug                                     varchar
+  uri                                      varchar
+  enabled                                  tinyint unsigned
+  dateCreated                              datetime
+  dateUpdated                              datetime
+  uid                                      char
+
+================================================================================
+feadship-craft3_prod.feadship-craft3_prod.craft_entries
+================================================================================
+Total Columns: 11
+
+  id                                       int
+  sectionId                                int
+  parentId                                 int
+  typeId                                   int
+  authorId                                 int
+  postDate                                 datetime
+  expiryDate                               datetime
+  deletedWithEntryType                     tinyint
+  dateCreated                              datetime
+  dateUpdated                              datetime
+  dateDeleted                              datetime
+
+================================================================================
+feadship-craft3_prod.feadship-craft3_prod.craft_entrytypes
+================================================================================
+Total Columns: 17
+
+  id                                       int
+  sectionId                                int
+  fieldLayoutId                            int
+  name                                     varchar
+  handle                                   varchar
+  hasTitleField                            tinyint unsigned
+  titleTranslationMethod                   varchar
+  titleTranslationKeyFormat                text
+  titleFormat                              varchar
+  slugTranslationMethod                    varchar
+  slugTranslationKeyFormat                 text
+  showStatusField                          tinyint
+  sortOrder                                smallint unsigned
+  dateCreated                              datetime
+  dateUpdated                              datetime
+  dateDeleted                              datetime
+  uid                                      char
+
+================================================================================
+feadship-craft3_prod.feadship-craft3_prod.craft_feadship_yacht_third_parties_content
+================================================================================
+Total Columns: 10
+
+  id                                       int
+  yacht_id                                 int
+  source_id                                varchar
+  source_type                              varchar
+  content                                  json
+  status                                   int
+  dateCreated                              datetime
+  dateUpdated                              datetime
+  dateDeleted                              datetime
+  uid                                      char
+
+================================================================================
+feadship-craft3_prod.feadship-craft3_prod.craft_fmc_resalebrochure
+================================================================================
+Total Columns: 14
+
+  id                                       int
+  elementId                                int
+  siteId                                   int
+  dateCreated                              datetime
+  dateUpdated                              datetime
+  uid                                      char
+  field_recipientName_dvnzamfc             varchar
+  field_recipientEmail_jfsbqgvx            varchar
+  field_subject_gvkmofid                   varchar
+  field_download_tccngxuz                  varchar
+  field_firstName_aqliobuu                 varchar
+  field_lastName_zzjtbpzd                  varchar
+  field_emailAddress_uihrcddb              varchar
+  field_phone_pfhlnfjk                     text
+
+================================================================================
+feadship-craft3_prod.feadship-craft3_prod.craft_fmc_resaleinquiry
+================================================================================
+Total Columns: 14
+
+  id                                       int
+  elementId                                int
+  siteId                                   int
+  dateCreated                              datetime
+  dateUpdated                              datetime
+  uid                                      char
+  field_recipientName_radsekvl             varchar
+  field_recipientEmail_nyytxvpz            varchar
+  field_subject_hyepirus                   varchar
+  field_firstName_umlrrbod                 varchar
+  field_lastName_pujkjvhr                  varchar
+  field_emailAddress_hpyiasys              varchar
+  field_phone_cowxivgl                     text
+  field_message_urfhagoa                   text
+
+================================================================================
+feadship-craft3_prod.feadship-craft3_prod.craft_matrixcontent_post_content
+================================================================================
+Total Columns: 20
+
+  id                                       int
+  elementId                                int
+  siteId                                   int
+  field_text_text                          text
+  field_quote_text                         text
+  field_relatedContent_layoutType          varchar
+  field_image_align                        varchar
+  dateCreated                              datetime
+  dateUpdated                              datetime
+  uid                                      char
+  field_imageGallery_layoutStyle           varchar
+  field_imageGallery_gridCellSize          varchar
+  field_imageGallery_gridFittingPolicy     varchar
+  field_form_formDescription               text
+  field_form_formTitle                     text
+  field_table_table                        text
+  field_relatedContent_fleetContext        varchar
+  field_image_fullWidth_bbycohmn           tinyint
+  field_quote_citee_eccarwaq               text
+  field_table_style_kdzbwwed               varchar
+
+================================================================================
+feadship-craft3_prod.feadship-craft3_prod.craft_matrixcontent_yacht_specificationsmatrix
+================================================================================
+Total Columns: 13
+
+  id                                       int
+  elementId                                int
+  siteId                                   int
+  dateCreated                              datetime
+  dateUpdated                              datetime
+  uid                                      char
+  field_specification_extras_upzmajwu      text
+  field_specification_specifications_yybfhsmg text
+  field_specification_guests_iczwojoj      text
+  field_specification_specification_type_gnjsztvg varchar
+  field_specification_year_tpbggyuo        int
+  field_specification_yard_howhglav        varchar
+  field_specification_description_owwqqhpg text
+
+================================================================================
+feadship-craft3_prod.feadship-craft3_prod.craft_relations
+================================================================================
+Total Columns: 9
+
+  id                                       int
+  fieldId                                  int
+  sourceId                                 int
+  sourceSiteId                             int
+  targetId                                 int
+  sortOrder                                smallint unsigned
+  dateCreated                              datetime
+  dateUpdated                              datetime
+  uid                                      char
+
+================================================================================
+feadship-craft3_prod.feadship-craft3_prod.craft_sections
+================================================================================
+Total Columns: 13
+
+  id                                       int
+  structureId                              int
+  name                                     varchar
+  handle                                   varchar
+  type                                     enum
+  enableVersioning                         tinyint unsigned
+  propagationMethod                        varchar
+  defaultPlacement                         enum
+  previewTargets                           text
+  dateCreated                              datetime
+  dateUpdated                              datetime
+  dateDeleted                              datetime
+  uid                                      char
+
+================================================================================
+feadship-craft3_prod.feadship-craft3_prod.craft_sections_sites
+================================================================================
+Total Columns: 10
+
+  id                                       int
+  sectionId                                int
+  siteId                                   int
+  hasUrls                                  tinyint
+  enabledByDefault                         tinyint unsigned
+  uriFormat                                text
+  template                                 varchar
+  dateCreated                              datetime
+  dateUpdated                              datetime
+  uid                                      char
+

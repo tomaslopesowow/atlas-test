@@ -1,0 +1,233 @@
+{
+    "common": {
+        "all": "alle",
+        "chapter": "Hoofdstuk {value, select, 1 {een} 2 {twee} 3 {drie} 4 {vier} 5 {vijf} 6 {zes} 7 {zeven} 8 {acht} 9 {negen} 10 {tien} other {#}}",
+        "downloadAll": "Alles downloaden",
+        "drag": "Slepen",
+        "event": "evenement",
+        "keepScrolling": "Blijf scrollen",
+        "load-more": "Meer laden",
+        "loading": "Laden...",
+        "mediaKit": "Media kit",
+        "next": "volgende",
+        "part": "Deel",
+        "pause": "Pauzeren",
+        "play": "Afspelen",
+        "pressToPlay": "{action, select, play {Klik om af te spelen} pause {Klik om te pauzeren} other {Klik om af te spelen}}",
+        "previous": "vorige",
+        "share": "Delen",
+        "spotlight": "spotlight",
+        "thisIs": "Dit is",
+        "viewAll": "Alles bekijken",
+        "phone": "Telefoon",
+        "email": "E-mail",
+        "backToHome": "Terug naar home"
+    },
+    "BuildProcess": {
+        "imagine": "Imagine",
+        "design": "Design",
+        "build": "Build"
+    },
+    "Article": {
+        "writtenBy": "Geschreven door",
+        "writtenByWithName": "door <authorName></authorName>",
+        "xMinutesRead": "{minutes} min lezen"
+    },
+    "Filter": {
+        "-name": "Naam (Z-A)",
+        "-price": "Prijs (aflopend)",
+        "-year": "Jaar (aflopend)",
+        "clearAll": "Alles wissen",
+        "filter": "Filter",
+        "filterAndSort": "Filter en sorteer",
+        "grid": "grid",
+        "length": "Lengte",
+        "list": "lijst",
+        "name": "Naam",
+        "price": "Prijs",
+        "search": "Zoek",
+        "searchPlaceholder": "Zoek op naam of hull nummer",
+        "show": "Toon",
+        "sortBy": "Sorteer op",
+        "year": "Jaar"
+    },
+    "FleetOverview": {
+        "all": "alle",
+        "spotlight": "spotlight"
+    },
+    "YachtDetail": {
+        "nextFeadship": "Volgende Feadship",
+        "hull": "Rompnr.",
+        "length": "Lengte",
+        "year": "Jaar",
+        "keepScrolling": "Blijf scrollen",
+        "price": "Prijs",
+        "scrollToExplore": "Scroll om te ontdekken",
+        "stateRooms": "{count, plural, =0 {Geen slaaphutten} =1 {1 slaaphut} other {# slaaphutten}}",
+        "thisIs": "Dit is {title}"
+    },
+    "Navigation": {
+        "home": "Home",
+        "toggle-menu": "Menu openen",
+        "menu": "Menu",
+        "language-select": "Selecteer taal",
+        "next": "volgende",
+        "open-submenu": "Open submenu voor",
+        "switch-to-language": "Schakel naar {locale} taal",
+        "play-sound": "Geluid afspelen",
+        "mute-sound": "Geluid uit",
+        "discover": "Ontdek"
+    },
+    "Search": {
+        "title": "Zoeken",
+        "results": "resultaten voor",
+        "error": "Fout bij het ophalen van zoekresultaten",
+        "news": "Nieuws",
+        "cases": "Cases",
+        "fleet": "Fleet",
+        "resale": "Resale"
+    },
+    "SkipLink": {
+        "skip-to-main-navigation": "Ga naar hoofd navigatie",
+        "skip-to-main-content": "Ga naar hoofdinhoud",
+        "skip-to-footer": "Ga naar footer"
+    },
+    "Index": {
+        "title": "Hallo wereld!"
+    },
+    "Loader": {
+        "get-on-board": "Ga aan boord"
+    },
+    "Footer": {
+        "rights": "Alle rechten voorbehouden.",
+        "newsletter": {
+            "title": "Nieuwsbrief",
+            "emailDescription": "Abonneer je op onze nieuwsbrief om het laatste nieuws en updates te ontvangen.",
+            "buttonText": "Abonneren",
+            "emailPlaceholder": "Voer je e-mailadres in",
+            "emailTerms": "Door je te abonneren ga je akkoord met ons privacybeleid en algemene voorwaarden."
+        }
+    },
+    "Series": {
+        "episodes": "{count, plural, =0 {geen afleveringen} =1 {1 aflevering} other {# afleveringen}}"
+    },
+    "CookieTable": {
+        "cookie": "Cookie",
+        "term": "Term",
+        "description": "Beschrijving",
+        "consent-label": "Toestemmingslabel",
+        "function": "Functie",
+        "edit-preferences": "Voorkeuren bewerken"
+    },
+    "CookieNotice": {
+        "title": "We gebruiken cookies",
+        "description": "Deze website gebruikt cookies om je browse-ervaring te verbeteren en informatie te verzamelen over hoe je met onze site interacteert. We gebruiken deze informatie om de siteprestaties te verbeteren en gebruiksvriendelijkheid te waarborgen.",
+        "accept": "Accepteren",
+        "deny": "Alles weigeren",
+        "allow-selection": "Toestemming geven",
+        "accept-all": "Alles accepteren",
+        "save-preferences": "Voorkeuren opslaan",
+        "param_ad_personalization": "Advertentie-personalisatie",
+        "param_ad_storage": "Advertentie-opslag",
+        "param_ad_user_data": "Advertentie-gebruikersgegevens",
+        "param_analytics_storage": "Analytics-opslag",
+        "necessary": "Noodzakelijk",
+        "analytics_storage": "Analytics",
+        "ad_storage": "Marketing"
+    },
+    "ecommerce": {
+        "product-sort": {
+            "sort-by": "Sorteer op",
+            "best-selling": "Best verkocht",
+            "price-low-to-high": "Prijs: Laag naar hoog",
+            "price-high-to-low": "Prijs: Hoog naar laag",
+            "title-a-z": "Titel: A-Z",
+            "title-z-a": "Titel: Z-A",
+            "featured": "Uitgelicht"
+        },
+        "product-filters": {
+            "filters": "Filters",
+            "in-stock": "Op voorraad",
+            "out-of-stock": "Niet op voorraad"
+        },
+        "product-list": {
+            "loading": "Laden...",
+            "load-more": "Meer laden"
+        }
+    },
+    "Categories": {
+        "all": "Alle",
+        "milestones": "Milestones",
+        "innovation": "Innovatie",
+        "sustainability": "Duurzaamheid",
+        "design": "Design",
+        "crafting": "Crafting",
+        "perspectives": "Perspectives",
+        "events": "Events"
+    },
+    "MailchimpForm": {
+        "mergeFields": {
+            "EMAIL": "Email",
+            "FNAME": "Voornaam",
+            "LNAME": "Achternaam",
+            "MEDIUM": "Medium",
+            "JOB_TITLE": "Functie",
+            "COMPANY": "Bedrijf",
+            "INDUSTRY": "Branche",
+            "COUNTRY": "Land",
+            "CITY": "Plaats",
+            "ZIP": "Postcode",
+            "PHONE": "Telefoon",
+            "ADDRESS": "Adres"
+        },
+        "formErrors": {
+            "invalidRequest": "Ongeldig verzoek. Probeer het opnieuw.",
+            "validationFailed": "Vul alle verplichte velden correct in.",
+            "serverError": "Er is iets misgegaan. Probeer het later opnieuw.",
+            "unknownError": "Er is iets misgegaan. Probeer het later opnieuw."
+        },
+        "fieldError": {
+            "EMAIL": "Vul een geldig e-mailadres in.",
+            "FNAME": "Vul een geldige voornaam in.",
+            "LNAME": "Vul een geldige achternaam in.",
+            "MEDIUM": "Vul een geldig medium in.",
+            "JOB_TITLE": "Vul een geldige functietitel in.",
+            "COMPANY": "Vul een geldig bedrijf in.",
+            "INDUSTRY": "Vul een geldige branche in.",
+            "COUNTRY": "Vul een geldig land in.",
+            "CITY": "Vul een geldige plaats in.",
+            "ZIP": "Vul een geldige postcode in.",
+            "PHONE": "Vul een geldig telefoonnummer in.",
+            "ADDRESS": "Vul een geldig adres in."
+        },
+        "success": "Bedankt voor je inschrijving!"
+    },
+    "emails": {
+        "otp": {
+            "subject": "Login Verificatie",
+            "body": "Je eenmalige wachtwoordcode is:",
+            "expiry": "Deze code verloopt over {minutes} minuten.",
+            "footer": "Als je deze code niet hebt aangevraagd, kun je deze e-mail veilig negeren."
+        }
+    },
+    "YachtSpecifications": {
+        "architect": "Scheepsarchitect",
+        "exteriorDesign": "Exterieurontwerp",
+        "interiorDesign": "Interieurontwerp",
+        "length": "Lengte",
+        "beam": "Balkbreedte",
+        "draught": "Diepgang",
+        "engines": "Hoofdmotoren",
+        "generators": "Generatoren",
+        "fuelCapacity": "Brandstofcapaciteit",
+        "waterCapacity": "Verswatercapaciteit",
+        "range": "Actieradius bij kruissnelheid",
+        "specifications": "Specificaties",
+        "categories": {
+            "design": "Ontwerp",
+            "refit": "Refit Specificaties",
+            "specifications": "Specificaties",
+            "propulsion": "Aandrijving"
+        }
+    }
+}

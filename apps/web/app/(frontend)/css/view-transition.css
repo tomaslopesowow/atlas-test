@@ -1,0 +1,68 @@
+::view-transition-old(root) {
+    animation: 500ms ease-out both blur-out;
+}
+
+::view-transition-new(root) {
+    animation:
+        500ms ease-out both blur-in,
+        500ms ease-out both fade-in;
+}
+
+::view-transition-old(navigation-menu) {
+    animation: var(--nav-open-duration) cubic-bezier(0.33, 1, 0.68, 1) both
+        menu-close;
+}
+
+::view-transition-new(navigation-menu) {
+    animation: none;
+}
+
+::view-transition-old(navigation-overlay) {
+    animation: calc(var(--nav-open-duration) / 2) ease-out both
+        calc(var(--nav-open-duration) / 2) fade-out;
+}
+
+::view-transition-new(navigation-overlay) {
+    animation: none;
+}
+
+@keyframes blur-out {
+    to {
+        filter: blur(50px);
+    }
+}
+
+@keyframes blur-in {
+    from {
+        filter: blur(50px);
+    }
+}
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes menu-close {
+    from {
+        clip-path: inset(0 0 0% 0);
+    }
+    to {
+        clip-path: inset(0 0 100% 0);
+    }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none;
+    }
+}

@@ -1,0 +1,109 @@
+secrets:
+  mongo_root_username:
+    name: ${MONGO_ROOT_USERNAME_SECRET_NAME}
+    external: true
+  mongo_root_password:
+    name: ${MONGO_ROOT_PASSWORD_SECRET_NAME}
+    external: true
+  web_env_file:
+    name: ${WEB_ENV_FILE_SECRET_NAME}
+    external: true
+
+services:
+  geoipupdate:
+    image: maxmindinc/geoipupdate:latest
+    environment:
+      - GEOIPUPDATE_ACCOUNT_ID=${MAXMIND_ACCOUNT_ID}
+      - GEOIPUPDATE_EDITION_IDS=GeoLite2-Country
+      - GEOIPUPDATE_FREQUENCY=744
+      - GEOIPUPDATE_LICENSE_KEY=${MAXMIND_LICENSE_KEY}
+    volumes:
+      - geoipdb:/usr/share/GeoIP
+
+  mongo:
+    image: mongo:latest
+    command:
+      - --storageEngine=wiredTiger
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        delay: 5s
+        failure_action: rollback
+        order: start-first
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME_FILE=/run/secrets/mongo_root_username
+      - MONGO_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo_root_password
+    healthcheck:
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+      test: ["CMD", "sh", "-c", "mongosh --username=$$(cat $$MONGO_INITDB_ROOT_USERNAME_FILE) --password=$$(cat $$MONGO_INITDB_ROOT_PASSWORD_FILE) --authenticationDatabase=admin --eval=\"db.adminCommand('ping')\""]
+    networks:
+      atlas:
+    secrets:
+      - mongo_root_username
+      - mongo_root_password
+    volumes:
+      - mongodb:/data/db
+
+  nginx:
+    image: nginx-certbot-geoip
+    build:
+      dockerfile: nginx.Dockerfile
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        delay: 5s
+        failure_action: rollback
+        order: start-first
+    environment:
+      - CERTBOT_EMAIL=${CERTBOT_EMAIL:-infrastructure@owow.io}
+      - STAGING=${CERTBOT_STAGING:-0}
+    networks:
+      atlas:
+    ports:
+      - 0.0.0.0:80:80
+      - 0.0.0.0:443:443
+    volumes:
+      - nginx_secrets:/etc/letsencrypt
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d/000_http.conf:/etc/nginx/user_conf.d/000_http.conf:ro
+      - ./nginx/conf.d/100_default.conf:/etc/nginx/user_conf.d/100_default.conf:ro
+      - ./nginx/conf.d/main/500_web.conf:/etc/nginx/user_conf.d/500_web.conf:ro
+      - geoipdb:/etc/nginx/geoip:ro
+
+  web:
+    image: registry.digitalocean.com/owow/feadship-web:${ATLAS_WEB_VERSION}
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        delay: 5s
+        failure_action: rollback
+        order: start-first
+    entrypoint: ["sh", "-c", "set -a && . /run/secrets/web_env_file && set +a && exec node /app/apps/web/server.js"]
+    environment:
+      PORT: 3000
+      HOSTNAME: 0.0.0.0
+    healthcheck:
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+      test: [CMD, wget, --no-verbose, --tries=1, --spider, http://0.0.0.0:3000/api/health]
+    networks:
+      atlas:
+    secrets:
+      - web_env_file
+
+volumes:
+  geoipdb:
+  mongodb:
+  nginx_secrets:
+
+networks:
+  atlas:
+    external: false

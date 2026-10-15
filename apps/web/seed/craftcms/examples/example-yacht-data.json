@@ -1,0 +1,163 @@
+{
+    "id": 2291,
+    "elementId": 2291,
+    "sectionId": 7,
+    "sectionName": "Yachts",
+    "sectionHandle": "yachts",
+    "typeId": 7,
+    "slug": "sands-of-time",
+    "uri": "fleet/sands-of-time",
+    "siteId": 5,
+    "title": "Sands of Time",
+    "currentName": "Argo",
+    "previousNames": null,
+    "hullNumber": "F086",
+    "fNumber": "F086",
+    "year": 1957,
+    "length": {
+        "width": 12,
+        "scale": 2,
+        "value": "1463"
+    },
+    "mmsi": null,
+    "imo": null,
+    "showContactDetails": 0,
+    "contactPersonName": null,
+    "contactPersonTitle": "Mr.",
+    "email": null,
+    "phone": null,
+    "contexts": "[\"fleet\"]",
+    "postDate": {
+        "micros": "1378468500000000"
+    },
+    "expiryDate": null,
+    "delivery": {
+        "micros": "-410230800000000"
+    },
+    "dateCreated": {
+        "micros": "1502876905000000"
+    },
+    "dateUpdated": {
+        "micros": "1746621254000000"
+    },
+    "specifications": [],
+    "thirdPartyData": [
+        {
+            "sourceId": "{\"DevoogtID\":2657,\"Context\":\"fleet\"}",
+            "sourceType": "DVDB",
+            "content": "{\"imo\": null, \"beam\": 4.27, \"crew\": null, \"hull\": null, \"mmsi\": null, \"yard\": \"G. de Vries Lentsch\", \"year\": 1957, \"about\": \"<p> 48' Sport-Fisherman.</p>\", \"depth\": null, \"range\": null, \"speed\": null, \"guests\": null, \"length\": 14.63, \"context\": \"fleet\", \"draught\": 0.97, \"delivery\": {\"date\": \"1957-01-01 00:00:00.000000\", \"timezone\": \"Europe/Amsterdam\", \"timezone_type\": 3}, \"architect\": \"\", \"devoogt_id\": 2657, \"generators\": \"\", \"staterooms\": null, \"launch_name\": \"Sands of Time\", \"mainengines\": \"\", \"current_name\": \"Argo\", \"readable_beam\": \"4.27m / 14′0″\", \"readable_crew\": \"\", \"exteriordesign\": \"\", \"feadship_refit\": false, \"interiordesign\": \"\", \"previous_names\": \"\", \"readable_depth\": \"\", \"readable_speed\": \"\", \"fuelcapacity_m3\": null, \"readable_guests\": \"\", \"readable_length\": \"14.63m / 48′0″\", \"feadship_website\": true, \"readable_draught\": \"0.97m / 3′2″\", \"watercapacity_m3\": null, \"readable_staterooms\": \"\", \"readable_fuelcapacity\": \"\", \"readable_watercapacity\": \"\", \"feadship_my_feadship_portal\": false}",
+            "status": 1,
+            "dateCreated": {
+                "micros": "1732977728000000"
+            },
+            "dateUpdated": {
+                "micros": "1746621254000000"
+            }
+        }
+    ],
+    "relatedAssets": [
+        {
+            "fieldId": 96,
+            "targetId": 6840979,
+            "sortOrder": 1,
+            "filename": "IMG_0005-Werf-Het-Fort.jpg",
+            "kind": "image",
+            "alt": null,
+            "width": "2800",
+            "height": "2048",
+            "size": {
+                "width": 20,
+                "scale": 0,
+                "value": "937457"
+            },
+            "focalPoint": null
+        }
+    ],
+    "gallery": {
+        "imagesExterior": [
+            {
+                "targetId": 6841344,
+                "sortOrder": 1,
+                "filename": "Feadship-SANDS-OF-TIME-Het-fort.jpg",
+                "kind": "image",
+                "alt": null,
+                "width": "2800",
+                "height": "2048",
+                "size": {
+                    "width": 20,
+                    "scale": 0,
+                    "value": "2165930"
+                },
+                "focalPoint": null,
+                "specificationType": "launch"
+            },
+            {
+                "targetId": 6841343,
+                "sortOrder": 2,
+                "filename": "Feadship-SANDS-OF-TIME-runningshot1.jpg",
+                "kind": "image",
+                "alt": null,
+                "width": "2846",
+                "height": "2228",
+                "size": {
+                    "width": 20,
+                    "scale": 0,
+                    "value": "1671456"
+                },
+                "focalPoint": null,
+                "specificationType": "launch"
+            },
+            {
+                "targetId": 6841342,
+                "sortOrder": 3,
+                "filename": "Sands-of-Time-high-speed.jpg",
+                "kind": "image",
+                "alt": null,
+                "width": "1864",
+                "height": "1365",
+                "size": {
+                    "width": 20,
+                    "scale": 0,
+                    "value": "1307923"
+                },
+                "focalPoint": null,
+                "specificationType": "launch"
+            },
+            {
+                "targetId": 6841341,
+                "sortOrder": 4,
+                "filename": "Feadship-SANDS-OF-TIME-runningshot2.jpg",
+                "kind": "image",
+                "alt": null,
+                "width": "867",
+                "height": "853",
+                "size": {
+                    "width": 20,
+                    "scale": 0,
+                    "value": "550717"
+                },
+                "focalPoint": null,
+                "specificationType": "launch"
+            }
+        ],
+        "imagesInterior": [
+            {
+                "targetId": 6841345,
+                "sortOrder": 1,
+                "filename": "Feadship-SANDS-OF-TIME-fireplace.jpg",
+                "kind": "image",
+                "alt": null,
+                "width": "2860",
+                "height": "1957",
+                "size": {
+                    "width": 20,
+                    "scale": 0,
+                    "value": "1772639"
+                },
+                "focalPoint": null,
+                "specificationType": "launch"
+            }
+        ],
+        "videos": []
+    }
+}

@@ -1,0 +1,15 @@
+packages:
+  - apps/*
+  - packages/*
+
+ignoredBuiltDependencies:
+  - duckdb
+
+onlyBuiltDependencies:
+  - '@biomejs/biome'
+  - '@sentry/cli'
+  - '@swc/core'
+  - core-js-pure
+  - esbuild
+  - highlight.js
+  - sharp

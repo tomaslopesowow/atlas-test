@@ -1,0 +1,218 @@
+@import "./css/view-transition.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+    :root {
+        --nav-open-duration: 1.2s;
+
+        --danger: #dc2626;
+        --success: #16a34a;
+        --info: #2b387f;
+        --warning: #ea580c;
+        --white: #ffffff;
+        --dark-blue: #131a2f;
+        --dark-blue-secondary: rgba(19, 26, 47, 70%);
+    }
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            :root {
+                --danger: oklch(0.5771 0.2152 27.33);
+                --success: oklch(0.6271 0.1699 149.21);
+                --info: oklch(0.3726 0.1204 271.52);
+                --warning: oklch(0.6461 0.1943 41.12);
+                --white: oklch(1 0 0);
+                --dark-blue: oklch(0.2227 0.0425 268.83);
+                --dark-blue-secondary: oklch(0.2227 0.0425 268.83 / 70%);
+            }
+        }
+    }
+    :root,
+    .light,
+    .light-theme {
+        --background-primary: var(--white);
+        --background-secondary: #f6f5f3;
+        --background-invert: #131a2f;
+        --background-invert-secondary: #080b15;
+
+        --surface-primary: #f6f5f3;
+        --surface-secondary: var(--white);
+        --surface-tertiary: #131a2f;
+
+        --text-primary: #131a2f;
+        --text-headline: #131a2f;
+        --text-body: rgba(19, 26, 47, 70%);
+        --text-invert: var(--white);
+        --text-invert-secondary: rgba(255, 255, 255, 70%);
+        --text-placeholder: #999fa3;
+        --text-danger: var(--danger);
+        --text-success: var(--success);
+        --text-info: var(--info);
+        --text-warning: var(--warning);
+        --text-disabled: #999fa3;
+
+        --border-primary: #eaeaeb;
+        --border-secondary: #dcdee0;
+        --border-tertiary: #131a2f;
+        --border-danger: var(--danger);
+        --border-success: var(--success);
+        --border-info: var(--info);
+        --border-warning: var(--warning);
+    }
+
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            :root,
+            .light,
+            .light-theme {
+                --background-primary: var(--white);
+                --background-secondary: oklch(0.9704 0.0029 84.56);
+                --background-invert: oklch(0.2227 0.0425 268.83);
+                --background-invert-secondary: oklch(0.1518 0.0222 270.3);
+
+                --surface-primary: oklch(0.9704 0.0029 84.56);
+                --surface-secondary: var(--white);
+                --surface-tertiary: oklch(0.2227 0.0425 268.83);
+
+                --text-primary: oklch(0.2227 0.0425 268.83);
+                --text-headline: oklch(0.2227 0.0425 268.83);
+                --text-body: oklch(0.2227 0.0425 268.83 / 70%);
+                --text-invert: var(--white);
+                --text-placeholder: oklch(0.6989 0.0091 236.62);
+                --text-danger: var(--danger);
+                --text-success: var(--success);
+                --text-info: var(--info);
+                --text-warning: var(--warning);
+                --text-disabled: oklch(0.6989 0.0091 236.62);
+
+                --border-primary: oklch(0.9373 0.0013 286.37);
+                --border-secondary: oklch(0.8996 0.0035 247.86);
+                --border-tertiary: oklch(0.2227 0.0425 268.83);
+                --border-danger: var(--danger);
+                --border-success: var(--success);
+                --border-info: var(--info);
+                --border-warning: var(--warning);
+            }
+        }
+    }
+
+    .dark,
+    .dark-theme {
+        --background-primary: #131a2f;
+        --background-secondary: #1d294a;
+        --background-invert: var(--white);
+        --background-invert-secondary: #f5f5f5;
+
+        --surface-primary: #18223d;
+        --surface-secondary: #131a2f;
+        --surface-tertiary: var(--white);
+
+        --text-primary: var(--white);
+        --text-headline: var(--white);
+        --text-body: rgba(255, 255, 255, 0.7);
+        --text-invert: #131a2f;
+        --text-invert-secondary: rgba(19, 26, 47, 70%);
+        --text-placeholder: #6e768b;
+        --text-danger: var(--danger);
+        --text-success: var(--success);
+        --text-info: var(--info);
+        --text-warning: var(--warning);
+        --text-disabled: #46506b;
+
+        --border-primary: rgba(255, 255, 255, 0.2);
+        --border-secondary: #1d294a;
+        --border-tertiary: var(--white);
+        --border-danger: var(--danger);
+        --border-success: var(--success);
+        --border-info: var(--info);
+        --border-warning: var(--warning);
+    }
+
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            .dark,
+            .dark-theme {
+                --background-primary: oklch(0.2227 0.0425 268.83);
+                --background-secondary: oklch(0.2883 0.0628 267.34);
+                --background-invert: var(--white);
+                --background-invert-secondary: oklch(0.9702 0 0);
+
+                --surface-primary: oklch(0.2576 0.053 267.29);
+                --surface-secondary: oklch(0.2227 0.0425 268.83);
+                --surface-tertiary: var(--white);
+
+                --text-primary: var(--white);
+                --text-headline: var(--white);
+                --text-body: oklch(1 0 0 / 70%);
+                --text-invert: oklch(0.2227 0.0425 268.83);
+                --text-placeholder: oklch(0.5666 0.0339 268.84);
+                --text-danger: var(--danger);
+                --text-success: var(--success);
+                --text-info: var(--info);
+                --text-warning: var(--warning);
+                --text-disabled: oklch(0.4338 0.0467 268.68);
+
+                --border-primary: oklch(1 0 0 / 20%);
+                --border-secondary: oklch(0.2883 0.0628 267.34);
+                --border-tertiary: var(--white);
+                --border-danger: var(--danger);
+                --border-success: var(--success);
+                --border-info: var(--info);
+                --border-warning: var(--warning);
+            }
+        }
+    }
+}
+
+@layer base {
+    /* Set body backgrounds to match the scrollbar gutter to theme bg */
+    body {
+        background-color: var(--white);
+    }
+
+    body:has(#theme-root.dark) {
+        background-color: var(--dark-blue);
+    }
+
+    body {
+        @apply bg-primary text-primary;
+    }
+
+    #not-found {
+        @apply bg-primary text-primary;
+    }
+}
+
+@layer components {
+    .pointer-chaser {
+        @apply fixed opacity-0 top-0 pointer-events-none will-change-transform z-30;
+    }
+
+    /* Needed cuz safari sucks and doesnt recognize tailwind arbitrary var() values*/
+    .marquee-item {
+        height: var(--marquee-height-mobile);
+        width: calc(var(--marquee-height-mobile) * var(--aspect));
+    }
+    @media (min-width: 768px) {
+        .marquee-item {
+            height: var(--marquee-height);
+            width: calc(var(--marquee-height) * var(--aspect));
+        }
+    }
+}
+@layer utilities {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        @apply appearance-none;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    /* Hide footer from page if block with data-hide-footer is exists on page */
+    #theme-root:has([data-hide-footer]) .content-footer {
+        display: none;
+    }
+}

@@ -1,0 +1,97 @@
+🚀 Starting yacht data extraction...
+
+📖 Loading database tables into DuckDB...
+  ✓ craft_entries: 33828 rows
+  ✓ craft_elements: 164272 rows
+  ✓ craft_elements_sites: 366475 rows
+  ✓ craft_content: 270107 rows
+  ✓ craft_matrixcontent_yacht_specificationsmatrix: 29056 rows
+  ✓ craft_feadship_yacht_third_parties_content: 764 rows
+  ✓ craft_fmc_resalebrochure: 62 rows
+  ✓ craft_fmc_resaleinquiry: 14 rows
+  ✓ craft_relations: 245344 rows
+  ✓ craft_assets: 33836 rows
+  ✓ craft_sections: 40 rows
+
+🔍 Finding yacht sections...
+Found 5 yacht sections: [
+  'Yachts (yachts)',
+  'Yacht Events (yachtEvents)',
+  'Yacht News (yachtNews)',
+  'Yacht Pages (yachtPages)',
+  'FLEET (fleet)'
+]
+
+📝 Extracting yacht data...
+Found 50354 yachts
+
+📊 Loading yacht specifications...
+Loaded 29056 specification records
+
+🌐 Loading third-party yacht data...
+Loaded 721 third-party records
+
+🖼️  Loading related assets...
+Loaded 179294 asset relations
+
+⚙️  Processing yacht data...
+✓ Processed 50354 yachts
+
+📝 Loading resale data...
+✓ Loaded 62 brochure requests
+✓ Loaded 14 resale inquiries
+
+💾 Writing to /home/stef/Downloads/FileCap__251223_0959/yacht-data.jsonl...
+✅ Successfully extracted yacht data!
+📄 Output file: /home/stef/Downloads/FileCap__251223_0959/yacht-data.jsonl
+
+📊 Statistics:
+  Total yachts: 50354
+  Yachts with hull numbers: 43000
+  Yachts with specifications: 0
+  Yachts with third-party data: 1772
+  Yachts with related assets: 44642
+  Resale brochure requests: 62
+  Resale inquiries: 14
+  Total records in file: 50430
+
+🔢 Hull Numbers Found:
+  1. 698 - Letani
+  2. 698 - Letani
+  3. 698 - Letani
+  4. 698 - Letani
+  5. 1006 - Faith
+  6. 1006 - Faith
+  7. 1006 - Faith
+  8. 1006 - Faith
+  9. 695 - Aquarius
+  10. 695 - Aquarius
+  11. 695 - Aquarius
+  12. 695 - Aquarius
+  13. 693 - Kamino
+  14. 693 - Kamino
+  15. 693 - Kamino
+  16. 693 - Kamino
+  17. 691 - Moon Sand Too
+  18. 691 - Moon Sand Too
+  19. 691 - Moon Sand Too
+  20. 691 - Moon Sand Too
+  21. 812 - JOY
+  22. 812 - JOY
+  23. 812 - JOY
+  24. 812 - JOY
+  25. 692 - Avatar
+  26. 692 - Avatar
+  27. 692 - Avatar
+  28. 692 - Avatar
+  29. 809 - Vanish
+  30. 809 - Vanish
+  ... and 42970 more
+
+📋 Sample yacht data:
+❌ Error during extraction: TypeError: Do not know how to serialize a BigInt
+    at JSON.stringify (<anonymous>)
+    at extractYachtData (file:///home/stef/Downloads/FileCap__251223_0959/extract-yacht-data.js:410:24)
+Fatal error: TypeError: Do not know how to serialize a BigInt
+    at JSON.stringify (<anonymous>)
+    at extractYachtData (file:///home/stef/Downloads/FileCap__251223_0959/extract-yacht-data.js:410:24)

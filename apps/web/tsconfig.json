@@ -1,0 +1,52 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "react-jsx",
+        "incremental": true,
+        "plugins": [
+            {
+                "name": "next"
+            },
+            {
+                "name": "gql.tada/ts-plugin",
+                "schemas": [
+                    {
+                        "name": "shopify-storefront",
+                        "schema": "node_modules/@shopify/hydrogen-react/storefront.schema.json",
+                        "tadaOutputLocation": "./features/shopify/api/env.storefront.d.ts"
+                    },
+                    {
+                        "name": "shopify-admin",
+                        "schema": "https://shopify.dev/admin-graphql-direct-proxy/2025-07",
+                        "tadaOutputLocation": "./features/shopify/api/env.admin.d.ts"
+                    }
+                ]
+            }
+        ],
+        "paths": {
+            "@/*": ["./*"],
+            "@payload-config": ["./payload.config.ts"]
+        },
+        "target": "ES2022"
+    },
+    "include": [
+        "global.d.ts",
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        ".next/types/**/*.ts",
+        ".next/dev/types/**/*.ts",
+        ".next/dev/dev/types/**/*.ts"
+    ],
+    "exclude": ["node_modules"]
+}

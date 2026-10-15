@@ -1,0 +1,36 @@
+{
+    "id": 12185318,
+    "firstName": null,
+    "lastName": null,
+    "title": null,
+    "picture": null,
+    "firstArticleDate": "2023-04-05T08:04:00.000Z",
+    "lastArticleDate": "2024-05-15T12:57:00.000Z",
+    "articleCount": 4,
+    "articles": [
+        {
+            "id": 12286721,
+            "title": "Feadship wins Superyacht Investor Awards 2024",
+            "postDate": "2024-05-15T12:57:00.000Z",
+            "slug": "feadship-wins-superyacht-investor-awards-2024"
+        },
+        {
+            "id": 12286724,
+            "title": "Science & Discovery award for Archimedes",
+            "postDate": "2024-03-22T09:47:00.000Z",
+            "slug": "archimedes-wins-the-science-discovery-award-at-the-ycm-explorer-awards-2024"
+        },
+        {
+            "id": 12286734,
+            "title": "IN MEMORIAM: Frits de Voogt",
+            "postDate": "2023-12-23T09:11:00.000Z",
+            "slug": "in-memoriam-frits-de-voogt-naval-architect"
+        },
+        {
+            "id": 12304078,
+            "title": "Always a Lady: Classic Feadship _Monaco_ for Sale",
+            "postDate": "2023-04-05T08:04:00.000Z",
+            "slug": "always-a-lady-classic-feadship-monaco-for-sale"
+        }
+    ]
+}

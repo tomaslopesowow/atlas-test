@@ -1,0 +1,123 @@
+{
+    "id": 12256212,
+    "elementId": 12256212,
+    "sectionId": 3,
+    "sectionName": "PILOT channel",
+    "sectionHandle": "news",
+    "typeId": 3,
+    "typeName": "News",
+    "typeHandle": "news",
+    "authorId": 4,
+    "slug": "maintaining-feadship-standards",
+    "uri": "news/maintaining-feadship-standards",
+    "siteId": 1,
+    "title": "Maintaining Feadship standards",
+    "subtitle": null,
+    "summary": "Launched in 1992, this year marks Siran’s third refit in Makkum. During the second refit in 2015 her aft deck was lengthened.",
+    "postDate": "2022-09-23T11:06:00.000Z",
+    "expiryDate": null,
+    "dateCreated": "2024-09-27T12:06:27.000Z",
+    "dateUpdated": "2024-09-27T12:06:28.000Z",
+    "eventStart": null,
+    "eventEnd": null,
+    "location": null,
+    "seoSettings": "{\"bundleVersion\":\"1.0.22\",\"sourceBundleType\":\"field\",\"sourceId\":null,\"sourceName\":null,\"sourceHandle\":null,\"sourceType\":\"field\",\"typeId\":null,\"sourceTemplate\":\"\",\"sourceSiteId\":null,\"sourceAltSiteSettings\":[],\"sourceDateUpdated\":\"2022-09-23T14:09:57+02:00\",\"metaGlobalVars\":{\"language\":null,\"mainEntityOfPage\":\"\",\"seoTitle\":\"\",\"siteNamePosition\":\"\",\"seoDescription\":\"\",\"seoKeywords\":\"\",\"seoImage\":\"\",\"seoImageWidth\":\"\",\"seoImageHeight\":\"\",\"seoImageDescription\":\"\",\"canonicalUrl\":\"\",\"robots\":\"\",\"ogType\":\"\",\"ogTitle\":\"\",\"ogSiteNamePosition\":\"\",\"ogDescription\":\"\",\"ogImage\":\"\",\"ogImageWidth\":\"\",\"ogImageHeight\":\"\",\"ogImageDescription\":\"\",\"twitterCard\":\"\",\"twitterCreator\":\"\",\"twitterTitle\":\"\",\"twitterSiteNamePosition\":\"\",\"twitterDescription\":\"\",\"twitterImage\":\"\",\"twitterImageWidth\":\"\",\"twitterImageHeight\":\"\",\"twitterImageDescription\":\"\",\"inherited\":{\"seoTitle\":true,\"seoDescription\":true,\"seoImage\":true},\"overrides\":[]},\"metaSiteVars\":{\"siteName\":\"Feadship\",\"siteAlternateName\":\"\",\"identity\":null,\"creator\":null,\"twitterHandle\":\"\",\"facebookProfileId\":\"\",\"facebookAppId\":\"\",\"googleSiteVerification\":\"\",\"bingSiteVerification\":\"\",\"pinterestSiteVerification\":\"\",\"facebookSiteVerification\":\"\",\"sameAsLinks\":[],\"siteLinksSearchTarget\":\"\",\"siteLinksQueryInput\":\"\",\"referrer\":\"no-referrer-when-downgrade\",\"additionalSitemapUrls\":[],\"additionalSitemapUrlsDateUpdated\":null,\"additionalSitemaps\":[]},\"metaSitemapVars\":{\"sitemapUrls\":null,\"sitemapAssets\":null,\"sitemapAssetTransform\":null,\"newsSitemap\":null,\"newsPublicationName\":\"\",\"sitemapFiles\":null,\"sitemapAltLinks\":null,\"sitemapChangeFreq\":\"\",\"sitemapPriority\":\"\",\"sitemapLimit\":null,\"sitemapPageSize\":500,\"structureDepth\":null,\"sitemapImageFieldMap\":[],\"sitemapVideoFieldMap\":[],\"inherited\":[],\"overrides\":[]},\"metaContainers\":{\"MetaTagContainergeneral\":{\"data\":[],\"name\":\"General\",\"description\":\"General Meta Tags\",\"class\":\"nystudio107\\\\seomatic\\\\models\\\\MetaTagContainer\",\"handle\":\"general\",\"include\":true,\"dependencies\":[],\"clearCache\":false},\"MetaTagContaineropengraph\":{\"data\":[],\"name\":\"Facebook\",\"description\":\"Facebook OpenGraph Meta Tags\",\"class\":\"nystudio107\\\\seomatic\\\\models\\\\MetaTagContainer\",\"handle\":\"opengraph\",\"include\":true,\"dependencies\":[],\"clearCache\":false},\"MetaTagContainertwitter\":{\"data\":[],\"name\":\"Twitter\",\"description\":\"Twitter Card Meta Tags\",\"class\":\"nystudio107\\\\seomatic\\\\models\\\\MetaTagContainer\",\"handle\":\"twitter\",\"include\":true,\"dependencies\":[],\"clearCache\":false},\"MetaTagContainermiscellaneous\":{\"data\":[],\"name\":\"Miscellaneous\",\"description\":\"Miscellaneous Meta Tags\",\"class\":\"nystudio107\\\\seomatic\\\\models\\\\MetaTagContainer\",\"handle\":\"miscellaneous\",\"include\":true,\"dependencies\":[],\"clearCache\":false},\"MetaLinkContainergeneral\":{\"data\":[],\"name\":\"General\",\"description\":\"Link Tags\",\"class\":\"nystudio107\\\\seomatic\\\\models\\\\MetaLinkContainer\",\"handle\":\"general\",\"include\":true,\"dependencies\":[],\"clearCache\":false},\"MetaScriptContainergeneral\":{\"data\":[],\"position\":1,\"name\":\"General\",\"description\":\"Script Tags\",\"class\":\"nystudio107\\\\seomatic\\\\models\\\\MetaScriptContainer\",\"handle\":\"general\",\"include\":true,\"dependencies\":[],\"clearCache\":false},\"MetaJsonLdContainergeneral\":{\"data\":[],\"name\":\"General\",\"description\":\"JsonLd Tags\",\"class\":\"nystudio107\\\\seomatic\\\\models\\\\MetaJsonLdContainer\",\"handle\":\"general\",\"include\":true,\"dependencies\":[],\"clearCache\":false},\"MetaTitleContainergeneral\":{\"data\":[],\"name\":\"General\",\"description\":\"Meta Title Tag\",\"class\":\"nystudio107\\\\seomatic\\\\models\\\\MetaTitleContainer\",\"handle\":\"general\",\"include\":true,\"dependencies\":[],\"clearCache\":false}},\"redirectsContainer\":[],\"frontendTemplatesContainer\":{\"data\":[],\"name\":null,\"description\":null,\"class\":\"nystudio107\\\\seomatic\\\\models\\\\FrontendTemplateContainer\",\"handle\":null,\"include\":true,\"dependencies\":null,\"clearCache\":false},\"metaBundleSettings\":{\"siteType\":\"\",\"siteSubType\":\"\",\"siteSpecificType\":\"\",\"seoTitleSource\":\"fromCustom\",\"seoTitleField\":\"title\",\"siteNamePositionSource\":\"\",\"seoDescriptionSource\":\"fromCustom\",\"seoDescriptionField\":\"title\",\"seoKeywordsSource\":\"fromCustom\",\"seoKeywordsField\":\"\",\"seoImageIds\":\"\",\"seoImageSource\":\"fromAsset\",\"seoImageField\":\"post_masthead\",\"seoImageTransform\":\"1\",\"seoImageTransformMode\":\"crop\",\"seoImageDescriptionSource\":\"fromCustom\",\"seoImageDescriptionField\":\"\",\"twitterCreatorSource\":\"\",\"twitterCreatorField\":\"\",\"twitterTitleSource\":\"\",\"twitterTitleField\":\"\",\"twitterSiteNamePositionSource\":\"\",\"twitterDescriptionSource\":\"\",\"twitterDescriptionField\":\"\",\"twitterImageIds\":[],\"twitterImageSource\":\"\",\"twitterImageField\":\"\",\"twitterImageTransform\":true,\"twitterImageTransformMode\":\"crop\",\"twitterImageDescriptionSource\":\"\",\"twitterImageDescriptionField\":\"\",\"ogTitleSource\":\"\",\"ogTitleField\":\"\",\"ogSiteNamePositionSource\":\"\",\"ogDescriptionSource\":\"\",\"ogDescriptionField\":\"\",\"ogImageIds\":[],\"ogImageSource\":\"\",\"ogImageField\":\"\",\"ogImageTransform\":true,\"ogImageTransformMode\":\"crop\",\"ogImageDescriptionSource\":\"\",\"ogImageDescriptionField\":\"\"}}",
+    "canonicalUrl": null,
+    "publishableContexts": "[]",
+    "pin": null,
+    "taxonomy": null,
+    "mediaTopics": null,
+    "buildPostMilestone": null,
+    "buildPostText": null,
+    "contentBlocks": [
+        {
+            "siteId": 1,
+            "blockId": 12256204,
+            "textContent": "<p>It is a great honour when owners return their prize possessions to us for repairs, refits or even routine maintenance. In the photo above is the still-avant garde <em>Siran</em>. Launched in 1992, this year marks <em>Siran</em>’s third refit in Makkum. During the second refit in 2015 her aft deck was lengthened. </p>\r\n<p>Behind <em>Siran</em> is <em>Firebird</em>, ex-<em>Anna</em> delivered in 2007. <em>Firebird</em> will also have a stern extension during this year period.</p>",
+            "quoteText": null,
+            "quoteCitee": null,
+            "imageAlign": null,
+            "imageFullWidth": null,
+            "galleryLayoutStyle": null,
+            "galleryGridCellSize": null,
+            "galleryGridFittingPolicy": null,
+            "relatedContentLayoutType": null,
+            "relatedContentFleetContext": null,
+            "relatedYachtEntries": [],
+            "formTitle": null,
+            "formDescription": null,
+            "tableData": null,
+            "tableStyle": null,
+            "media": [],
+            "dateCreated": "2024-09-27T12:04:46.000Z",
+            "dateUpdated": "2025-04-02T08:51:20.000Z"
+        },
+        {
+            "siteId": 1,
+            "blockId": 12256213,
+            "textContent": null,
+            "quoteText": null,
+            "quoteCitee": null,
+            "imageAlign": null,
+            "imageFullWidth": null,
+            "galleryLayoutStyle": null,
+            "galleryGridCellSize": null,
+            "galleryGridFittingPolicy": null,
+            "relatedContentLayoutType": "banner",
+            "relatedContentFleetContext": "brokerage",
+            "relatedYachtEntries": [
+                {
+                    "targetId": 1390,
+                    "slug": "siran",
+                    "uri": "fleet/siran",
+                    "entryTypeId": 7,
+                    "sortOrder": 1
+                },
+                {
+                    "targetId": 1390,
+                    "slug": "siran",
+                    "uri": "fleet/siran",
+                    "entryTypeId": 7,
+                    "sortOrder": 1
+                },
+                {
+                    "targetId": 1795,
+                    "slug": "anna",
+                    "uri": "fleet/anna",
+                    "entryTypeId": 7,
+                    "sortOrder": 2
+                },
+                {
+                    "targetId": 1795,
+                    "slug": "anna",
+                    "uri": "fleet/anna",
+                    "entryTypeId": 7,
+                    "sortOrder": 2
+                }
+            ],
+            "formTitle": null,
+            "formDescription": null,
+            "tableData": null,
+            "tableStyle": null,
+            "media": [],
+            "dateCreated": "2024-09-27T12:06:28.000Z",
+            "dateUpdated": "2025-04-02T08:51:19.000Z"
+        }
+    ],
+    "relatedAssets": [
+        {
+            "fieldId": 3,
+            "targetId": 12136373,
+            "sortOrder": 1,
+            "filename": "siran-and-firebird-copyright-feadship.jpg",
+            "kind": "image",
+            "alt": null,
+            "width": "1280",
+            "height": "720",
+            "size": 154621,
+            "focalPoint": null,
+            "dateCreated": "2022-09-23T12:08:07.000Z"
+        }
+    ],
+    "tags": []
+}

@@ -1,0 +1,142 @@
+---
+- name: Create /var/www/ directory
+  ansible.builtin.file:
+    dest: /var/www/app/docker
+    state: directory
+    owner: root
+    group: docker
+    mode: 0700
+
+- name: Upload Docker files
+  ansible.posix.synchronize:
+    src: ../../../../docker/
+    dest: /var/www/app/docker/
+    recursive: true
+    delete: true
+    checksum: true
+
+
+- name: Log in to DigitalOcean Container Registry
+  community.docker.docker_login:
+    registry_url: registry.digitalocean.com
+    username: docker
+    password: "{{ digitalocean_token }}"
+
+- name: Generate versioned secret names
+  ansible.builtin.set_fact:
+    mongo_root_username_secret_name: "mongo_root_username_{{ atlas_web_version | replace('.', '_') }}_{{ (mongo_root_username | hash('sha256'))[:8] }}"
+    mongo_root_password_secret_name: "mongo_root_password_{{ atlas_web_version | replace('.', '_') }}_{{ (mongo_root_password | hash('sha256'))[:8] }}"
+    web_env_file_secret_name: "web_env_file_{{ atlas_web_version | replace('.', '_') }}_{{ ((atlas_web_env | b64decode) | hash('sha256'))[:8] }}"
+
+- name: Create MongoDB root username secret
+  community.docker.docker_secret:
+    name: "{{ mongo_root_username_secret_name }}"
+    data: "{{ mongo_root_username }}"
+    state: present
+
+- name: Create MongoDB root password secret
+  community.docker.docker_secret:
+    name: "{{ mongo_root_password_secret_name }}"
+    data: "{{ mongo_root_password }}"
+    state: present
+
+- name: Create web environment file secret
+  community.docker.docker_secret:
+    name: "{{ web_env_file_secret_name }}"
+    data: "{{ atlas_web_env | b64decode }}"
+    state: present
+
+- name: Build docker images
+  ansible.builtin.shell: docker compose --file="/var/www/app/docker/compose.{{ atlas_environment }}.yml" build
+  environment:
+    MONGO_ROOT_USERNAME_SECRET_NAME: "{{ mongo_root_username_secret_name }}"
+    MONGO_ROOT_PASSWORD_SECRET_NAME: "{{ mongo_root_password_secret_name }}"
+    WEB_ENV_FILE_SECRET_NAME: "{{ web_env_file_secret_name }}"
+
+- name: Deploy Docker stack to Swarm
+  community.docker.docker_stack:
+    name: atlas
+    state: present
+    compose:
+      - "/var/www/app/docker/compose.{{ atlas_environment }}.yml"
+    with_registry_auth: true
+    prune: true
+  environment:
+    ATLAS_WEB_VERSION: "{{ atlas_web_version }}"
+    MAXMIND_ACCOUNT_ID: "{{ maxmind_account_id }}"
+    MAXMIND_LICENSE_KEY: "{{ maxmind_license_key }}"
+    MONGO_ROOT_USERNAME_SECRET_NAME: "{{ mongo_root_username_secret_name }}"
+    MONGO_ROOT_PASSWORD_SECRET_NAME: "{{ mongo_root_password_secret_name }}"
+    WEB_ENV_FILE_SECRET_NAME: "{{ web_env_file_secret_name }}"
+  register: deploy_result
+
+- name: Get all services in the atlas stack
+  ansible.builtin.shell: docker service ls -q --filter label=com.docker.stack.namespace=atlas
+  register: atlas_services
+
+# Need to force update the entire stack because swarm has difficulty detecting
+# certain changes.
+- name: Force update all services in the atlas stack and wait for completion
+  ansible.builtin.shell: |
+    if docker service update --force {{ item }}; then
+      sleepTime=2
+      i=0
+      while [ $i -lt 16 ]; do
+        status=$(docker service inspect {{ item }} --format '{{ '{{' }}.UpdateStatus.State{{ '}}' }}')
+
+        if [ "$status" = "completed" ] || [ -z "$status" ]; then
+          echo "Service {{ item }} is stable"
+          break
+        elif [ "$status" = "rollback_completed" ]; then
+          echo "Service {{ item }} rolled back"
+          break
+        elif [ "$status" = "paused" ]; then
+          echo "Service {{ item }} is paused"
+          break
+        fi
+
+        i=$((i + 1))
+        sleep $sleepTime
+        sleepTime=$((sleepTime + 1))
+      done
+    else
+        exit 1
+    fi
+  loop: "{{ atlas_services.stdout_lines }}"
+  when: atlas_services.stdout_lines | length > 0
+
+- name: Get list of all Docker secrets
+  # docker secret ls --format {{.Name}}
+  ansible.builtin.shell: docker secret ls --format '{{ '{{' }}.Name{{ '}}' }}'
+  register: all_secrets
+
+- name: Get list of secrets currently in use
+  # docker service ls --format {{.ID}} --filter label=com.docker.stack.namespace=atlas | \
+  # xargs -I {} docker service inspect {} --format {{range .Spec.TaskTemplate.ContainerSpec.Secrets}}{{.SecretName}} {{end}}
+  ansible.builtin.shell: |
+    docker service ls --format '{{ '{{' }}.ID{{ '}}' }}' --filter label=com.docker.stack.namespace=atlas | \
+    xargs -I {} docker service inspect {} --format '{{ '{{' }}range .Spec.TaskTemplate.ContainerSpec.Secrets{{ '}}' }}{{ '{{' }}.SecretName{{ '}}' }} {{ '{{' }}end{{ '}}' }}'
+  register: used_secrets
+
+- name: Identify old secrets to remove
+  ansible.builtin.set_fact:
+    old_secrets: "{{ all_secrets.stdout_lines | select('match', '^(postgres_user|postgres_password|backend_env_file)_.*') | difference(used_secrets.stdout.split()) | list }}"
+
+- name: Remove old unused secrets
+  community.docker.docker_secret:
+    name: "{{ item }}"
+    state: absent
+  loop: "{{ old_secrets }}"
+  when: old_secrets | length > 0
+  ignore_errors: true
+
+- name: Clean up unused Docker state
+  community.docker.docker_prune:
+    containers: true
+    networks: true
+    volumes: true
+    images: true
+    images_filters:
+      dangling: false
+      until: 168h
+  ignore_errors: true

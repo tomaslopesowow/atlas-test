@@ -1,0 +1,68 @@
+{
+    "title": "Feadship WSA 2014 1080P",
+    "description": "This is \"Feadship WSA 2014 1080P\" by Feadship on Vimeo, the home for high quality videos and the people who love them.",
+    "url": "https://vimeo.com/92022224",
+    "type": "video",
+    "tags": [],
+    "feeds": [],
+    "images": [
+        {
+            "url": "https://i.vimeocdn.com/video/863924501-cf289024e1a990daf19e97c4a3662fbebb1e271a7562d63c50c7581882dbe33b-d_1280",
+            "width": 1280,
+            "height": 720,
+            "size": 921600,
+            "mime": "image/jpeg"
+        },
+        {
+            "url": "https://i.vimeocdn.com/filter/overlay?src0=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F863924501-cf289024e1a990daf19e97c4a3662fbebb1e271a7562d63c50c7581882dbe33b-d_1280x720&src1=https%3A%2F%2Ff.vimeocdn.com%2Fimages_v6%2Fshare%2Fplay_icon_overlay.png",
+            "width": 1280,
+            "height": 720,
+            "size": 921600,
+            "mime": "image/jpeg"
+        }
+    ],
+    "image": "https://i.vimeocdn.com/video/863924501-cf289024e1a990daf19e97c4a3662fbebb1e271a7562d63c50c7581882dbe33b-d_1280",
+    "imageWidth": 1280,
+    "imageHeight": 720,
+    "code": "<iframe src=\"https://player.vimeo.com/video/92022224?h=4b8e0ab4bf&amp;app_id=122963\" width=\"1920\" height=\"1080\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen title=\"Feadship WSA 2014 1080P\"></iframe>",
+    "width": 1920,
+    "height": 1080,
+    "aspectRatio": 56.25,
+    "authorName": "Feadship",
+    "authorUrl": "https://vimeo.com/feadship",
+    "providerIcons": [
+        {
+            "url": "https://vimeo.com/favicon.ico",
+            "width": 32,
+            "height": 32,
+            "size": 1024,
+            "mime": "image/vnd.microsoft.icon"
+        },
+        {
+            "url": "https://i.vimeocdn.com/favicon/main-touch_180",
+            "width": 180,
+            "height": 180,
+            "size": 32400,
+            "mime": "image/jpeg"
+        },
+        {
+            "url": "https://f.vimeocdn.com/images_v6/favicon.ico?03cef7b9755d0b4e6fd281662e5efdfc50cd1d3b",
+            "width": 32,
+            "height": 32,
+            "size": 1024,
+            "mime": "image/vnd.microsoft.icon"
+        },
+        {
+            "url": "https://i.vimeocdn.com/favicon/main-touch_144",
+            "width": 144,
+            "height": 144,
+            "size": 20736,
+            "mime": "image/jpeg"
+        }
+    ],
+    "providerIcon": "https://i.vimeocdn.com/favicon/main-touch_180",
+    "providerName": "Vimeo",
+    "providerUrl": "https://vimeo.com/",
+    "publishedTime": null,
+    "license": null
+}
