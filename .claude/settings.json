@@ -1,0 +1,13 @@
+{
+    "extraKnownMarketplaces": {
+        "owow-plugins": {
+            "source": {
+                "source": "github",
+                "repo": "owowagency/claude-plugins"
+            }
+        }
+    },
+    "enabledPlugins": {
+        "pagespeed@owow-plugins": true
+    }
+}

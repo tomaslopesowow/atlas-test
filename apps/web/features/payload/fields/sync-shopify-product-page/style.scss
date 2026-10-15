@@ -1,0 +1,9 @@
+.shopify-product-component {
+    .label-wrapper {
+        display: flex;
+
+        a:not(:first-child) {
+            padding-left: 1rem;
+        }
+    }
+}

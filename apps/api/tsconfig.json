@@ -1,0 +1,12 @@
+{
+    "extends": "../../tsconfig.json",
+    "include": ["src/**/*.ts"],
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "useDefineForClassFields": false,
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "types": ["node", "multer"]
+    }
+}
