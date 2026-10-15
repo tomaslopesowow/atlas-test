@@ -1,0 +1,79 @@
+:root {
+    --success: var(--green-600);
+    --warning: var(--orange-600);
+    --danger: var(--red-600);
+    --info: var(--blue-600);
+}
+
+.light,
+.light-theme {
+    --background-primary: var(--white);
+
+    --surface-primary: var(--gray-100);
+    --surface-secondary: var(--white);
+    --surface-tertiary: var(--gray-200);
+    --surface-invert: var(--black);
+
+    --surface-input-default: var(--white);
+    --surface-input-disabled: var(--gray-300);
+    --surface-input-danger: var(--red-100);
+
+    --text-headline: var(--gray-950);
+    --text-paragraph: var(--gray-600);
+    --text-placeholder: var(--gray-300);
+    --text-invert: var(--white);
+    --text-input-default: var(--gray-300);
+    --text-input-active: var(--black);
+
+    --icon-primary: var(--black);
+    --icon-secondary: var(--gray-400);
+
+    --border-gray: var(--gray-200);
+    --border-full: var(--black);
+    --border-input-default: var(--gray-200);
+
+    --button-primary-default: var(--black);
+    --button-primary-hover: var(--gray-800);
+    --button-primary-disabled: var(--gray-100);
+    --button-primary-pressed: var(--gray-950);
+    --button-secondary-default: var(--gray-100);
+    --button-secondary-hover: var(--gray-200);
+    --button-secondary-pressed: var(--gray-300);
+    --button-secondary-disabled: var(--white);
+}
+
+.dark,
+.dark-theme {
+    --background-primary: var(--black);
+
+    --surface-primary: var(--gray-900);
+    --surface-secondary: var(--gray-950);
+    --surface-tertiary: var(--gray-800);
+    --surface-invert: var(--white);
+    --surface-input-default: rgb(from var(--white) r g b / 0.1);
+    --surface-input-disabled: var(--gray-700);
+    --surface-input-danger: rgb(from var(--red-500) r g b / 0.2);
+
+    --text-headline: var(--white);
+    --text-paragraph: rgb(from var(--white) r g b / 0.7);
+    --text-placeholder: var(--white);
+    --text-invert: var(--black);
+    --text-input-default: rgb(from var(--white) r g b / 0.4);
+    --text-input-active: var(--white);
+
+    --icon-primary: var(--white);
+    --icon-secondary: var(--gray-700);
+
+    --border-gray: var(--gray-800);
+    --border-full: var(--white);
+    --border-input-default: rgb(from var(--white) r g b / 0.1);
+
+    --button-primary-default: var(--white);
+    --button-primary-hover: var(--gray-100);
+    --button-primary-disabled: var(--gray-800);
+    --button-primary-pressed: var(--gray-200);
+    --button-secondary-default: var(--gray-900);
+    --button-secondary-hover: var(--gray-800);
+    --button-secondary-pressed: var(--gray-700);
+    --button-secondary-disabled: var(--white);
+}
