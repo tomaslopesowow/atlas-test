@@ -1,0 +1,3 @@
+---
+- name: start fail2ban
+  service: name=fail2ban enabled=yes state=started
